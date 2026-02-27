@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QVL Admin Dashboard | Quantum Vector Labs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#22D3EE",
+                        "deep-space": "#0a0c10",
+                        "sidebar-bg": "#0f1217",
+                        "card-bg": "rgba(23, 27, 34, 0.6)",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-card-bg backdrop-blur-xl border border-white/5;
+            }
+            .sidebar-link-active {
+                @apply bg-primary/10 text-primary border-r-2 border-primary;
+            }
+            .glow-cyan {
+                filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
+            }
+        }
+        body {
+            background-color: #0a0c10;
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.03) 0%, transparent 100%),
+                radial-gradient(circle at 10% 10%, rgba(168, 85, 247, 0.02) 0%, transparent 100%);
+        }
+        .chart-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 0;
+        }
+    </style>
+</head>
+<body class="font-display text-slate-100 overflow-hidden flex h-screen">
+<aside class="w-64 bg-sidebar-bg border-r border-white/5 flex flex-col z-50">
+<div class="p-6 flex items-center gap-3">
+<div class="size-8 bg-primary rounded flex items-center justify-center">
+<svg class="text-deep-space size-5" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z" fill="currentColor"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tighter">QVL <span class="text-xs font-normal text-slate-500 ml-1 uppercase">Admin</span></span>
+</div>
+<nav class="flex-1 px-4 mt-4 space-y-1">
+<div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest px-4 mb-2">Systems</div>
+<a class="sidebar-link-active flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-all" href="#">
+<span class="material-symbols-outlined text-xl">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">insights</span> Vector Engine
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">map</span> Neural Node Map
+            </a>
+<div class="text-[10px] font-mono text-slate-500 uppercase tracking-widest px-4 mt-8 mb-2">Internal Tools</div>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">terminal</span> Vector Pulse
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">database</span> Knowledge Base
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-sm text-slate-400 hover:bg-white/5 transition-all" href="#">
+<span class="material-symbols-outlined text-xl">settings</span> Infrastructure
+            </a>
+</nav>
+<div class="p-6 border-t border-white/5">
+<div class="flex items-center gap-3 mb-4">
+<div class="size-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-[10px] font-mono text-primary uppercase">v4.2.1-Stable</span>
+</div>
+<button class="w-full py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">logout</span> Sign Out
+            </button>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto bg-deep-space relative">
+<header class="sticky top-0 z-40 h-16 glass-panel border-x-0 flex items-center justify-between px-8">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono text-slate-500">SYSTEM_STATUS:</span>
+<span class="px-2 py-0.5 rounded bg-primary/10 text-primary text-[10px] font-bold border border-primary/20">OPTIMAL</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-mono text-slate-500">LATENCY:</span>
+<span class="text-xs text-slate-200">0.04ms</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-white/10 pr-6">
+<button class="text-slate-400 hover:text-white"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-slate-400 hover:text-white"><span class="material-symbols-outlined">search</span></button>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<div class="text-xs font-bold">Dr. Aris Thorne</div>
+<div class="text-[10px] text-slate-500">System Architect</div>
+</div>
+<div class="size-10 rounded-full bg-gradient-to-br from-primary to-purple-500 p-0.5">
+<div class="w-full h-full rounded-full bg-sidebar-bg flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">person</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="p-8">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h1 class="text-3xl font-bold tracking-tight">Overview Dashboard</h1>
+<p class="text-slate-500 mt-1">Real-time telemetry and neural engine performance metrics.</p>
+</div>
+<div class="flex gap-2">
+<button class="glass-panel px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-2 hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Last 24h
+                    </button>
+<button class="bg-primary text-deep-space px-4 py-2 rounded-lg text-xs font-bold hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] transition-all">
+                        Download Report
+                    </button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-6">
+<div class="col-span-12 lg:col-span-8 glass-panel rounded-xl p-6">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                                Vector Engine Throughput
+                            </h3>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">Queries per second • Node Cluster A-7</p>
+</div>
+<div class="flex items-center gap-4 text-xs font-mono">
+<div class="flex items-center gap-2"><span class="size-2 rounded-full bg-primary"></span> Live</div>
+<div class="flex items-center gap-2 text-slate-500"><span class="size-2 rounded-full bg-slate-700"></span> Mean</div>
+</div>
+</div>
+<div class="h-64 w-full relative">
+<svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 200">
+<path class="glow-cyan" d="M0,150 L100,120 L200,160 L300,100 L400,110 L500,40 L600,80 L700,30 L800,120 L900,100 L1000,60" fill="none" stroke="#22D3EE" stroke-width="3"></path>
+<path d="M0,150 L100,120 L200,160 L300,100 L400,110 L500,40 L600,80 L700,30 L800,120 L900,100 L1000,60 V200 H0 Z" fill="url(#grad1)"></path>
+<defs>
+<linearGradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:rgba(34, 211, 238, 0.2);stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:rgba(34, 211, 238, 0);stop-opacity:1"></stop>
+</linearGradient>
+</defs>
+</svg>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 glass-panel rounded-xl p-6 relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">public</span>
+                            Neural Node Map
+                        </h3>
+<p class="text-[10px] text-slate-500 uppercase tracking-widest mt-1">42 active regions globally</p>
+</div>
+<div class="mt-8 relative h-48 rounded-lg bg-slate-900/50 border border-white/5 flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none grayscale brightness-50">
+<svg class="w-full h-full" viewBox="0 0 400 200">
+<circle cx="100" cy="80" fill="#22D3EE" r="2"></circle>
+<circle class="animate-pulse" cx="180" cy="60" fill="#22D3EE" r="3"></circle>
+<circle cx="300" cy="110" fill="#22D3EE" r="2"></circle>
+<circle cx="220" cy="140" fill="#22D3EE" r="2"></circle>
+<path d="M100,80 L180,60 L300,110 L220,140 Z" fill="none" stroke="#22D3EE" stroke-width="0.5"></path>
+</svg>
+</div>
+<div class="relative z-10 flex flex-col items-center">
+<span class="text-3xl font-black text-primary glow-cyan">99.9%</span>
+<span class="text-[10px] font-mono text-slate-400 mt-1 uppercase tracking-tighter">Availability Index</span>
+</div>
+</div>
+<div class="mt-6 space-y-3">
+<div class="flex justify-between items-center text-xs">
+<span class="text-slate-400">NA-East Node 1</span>
+<span class="text-primary font-mono">ONLINE</span>
+</div>
+<div class="flex justify-between items-center text-xs">
+<span class="text-slate-400">EU-West Node 4</span>
+<span class="text-primary font-mono">ONLINE</span>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-7 glass-panel rounded-xl p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">terminal</span>
+                            Vector Pulse Logs
+                        </h3>
+<span class="text-[10px] font-mono text-slate-500 uppercase">Live_Steam: Enabled</span>
+</div>
+<div class="space-y-4 font-mono text-[11px]">
+<div class="flex gap-4 items-start border-l-2 border-primary/20 pl-4 py-1 bg-white/5">
+<span class="text-primary opacity-50">14:22:01</span>
+<p><span class="text-primary">[SYSTEM]</span> Neural weights re-synchronized for cluster_09. Delta: 0.002.</p>
+</div>
+<div class="flex gap-4 items-start pl-4 py-1">
+<span class="text-slate-600">14:21:44</span>
+<p><span class="text-purple-400">[THORNE]</span> Initiating sub-meter scan of Sector 4G. Please confirm bandwidth.</p>
+</div>
+<div class="flex gap-4 items-start pl-4 py-1">
+<span class="text-slate-600">14:21:42</span>
+<p><span class="text-cyan-400">[VECTOR_AI]</span> Ready. Allocating 400TBps for spatial rendering.</p>
+</div>
+<div class="flex gap-4 items-start pl-4 py-1 border-l-2 border-red-500/20 bg-red-500/5">
+<span class="text-slate-600">14:18:30</span>
+<p><span class="text-red-400">[WARN]</span> Latency spike detected in AP-South-1. Redirecting traffic.</p>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-4">
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-between hover:border-primary/40 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">bolt</span>
+<div>
+<h4 class="font-bold text-sm">Turbo Boost</h4>
+<p class="text-[10px] text-slate-500 mt-1">Instantly scale compute resources.</p>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-between hover:border-primary/40 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">history</span>
+<div>
+<h4 class="font-bold text-sm">Snapshots</h4>
+<p class="text-[10px] text-slate-500 mt-1">Restore previous model weights.</p>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-between hover:border-primary/40 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">security</span>
+<div>
+<h4 class="font-bold text-sm">Firewall</h4>
+<p class="text-[10px] text-slate-500 mt-1">Manage neural perimeter access.</p>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-xl flex flex-col justify-between hover:border-primary/40 transition-colors cursor-pointer group">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">hub</span>
+<div>
+<h4 class="font-bold text-sm">Node Editor</h4>
+<p class="text-[10px] text-slate-500 mt-1">Configure individual vector nodes.</p>
+</div>
+</div>
+</div>
+</div>
+<footer class="mt-12 flex items-center justify-between text-[10px] font-mono text-slate-600 uppercase tracking-[0.2em]">
+<div>© 2024 Quantum Vector Labs Internal Operations</div>
+<div class="flex gap-6">
+<span>Build: b772-rev03</span>
+<span>Enc: AES-256-QRT</span>
+</div>
+</footer>
+</div>
+</main>
+<div class="fixed inset-0 pointer-events-none border-[1.5rem] border-deep-space/20 z-10"></div>
+
+</body></html>

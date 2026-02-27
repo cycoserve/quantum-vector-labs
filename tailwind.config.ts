@@ -1,0 +1,45 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: "#20d3ee",
+        "background-light": "#f1f2f4",
+        "background-dark": "#010918",
+        "space-blue": "#020617",
+        "glass-border": "rgba(34, 211, 238, 0.2)",
+      },
+      fontFamily: {
+        display: ["Space Grotesk", "sans-serif"],
+      },
+      borderRadius: {
+        DEFAULT: "0.5rem",
+        lg: "1rem",
+        xl: "1.5rem",
+      },
+      boxShadow: {
+        "vector-glow": "0 0 15px rgba(32, 211, 238, 0.3)",
+      },
+      animation: {
+        ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+        pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      keyframes: {
+        ping: {
+          "75%, 100%": {
+            transform: "scale(2)",
+            opacity: "0",
+          },
+        },
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
