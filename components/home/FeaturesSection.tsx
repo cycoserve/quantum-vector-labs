@@ -71,7 +71,7 @@ export default function FeaturesSection() {
           {features.map((feature) => (
             <div 
               key={feature.title}
-              className="glass-panel rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 group"
+              className="glass-panel rounded-2xl p-6 hover:border-primary/30 transition-all duration-300 group card-ring-hover"
             >
               {/* Icon */}
               <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary/20 transition-colors">

@@ -37,10 +37,10 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div className="flex gap-4">
-          <div className="size-8 glass-panel rounded-full flex items-center justify-center border-white/10 hover:border-primary/50 transition-colors cursor-pointer">
+          <div className="size-8 glass-panel rounded-full flex items-center justify-center border-white/10 hover:border-primary/50 transition-colors cursor-pointer card-ring">
             <Terminal className="w-4 h-4 text-slate-400" />
           </div>
-          <div className="size-8 glass-panel rounded-full flex items-center justify-center border-white/10 hover:border-primary/50 transition-colors cursor-pointer">
+          <div className="size-8 glass-panel rounded-full flex items-center justify-center border-white/10 hover:border-primary/50 transition-colors cursor-pointer card-ring">
             <Share2 className="w-4 h-4 text-slate-400" />
           </div>
         </div>

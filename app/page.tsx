@@ -1,4 +1,6 @@
-import Header from "@/components/layout/Header";
+"use client";
+
+import { useAuth } from '@/lib/auth-context';
 import Sidebar from "@/components/layout/Sidebar";
 import HeroSection from "@/components/home/HeroSection";
 import ServicesSection from "@/components/home/ServicesSection";
@@ -10,10 +12,19 @@ import CTASection from "@/components/home/CTASection";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
+  const { isLoading } = useAuth();
+
+  if (isLoading) {
+    return (
+      <main className="relative min-h-screen flex items-center justify-center">
+        <div className="text-primary">Loading...</div>
+      </main>
+    );
+  }
+
   return (
-    <main className="relative bg-background-dark">
-      {/* Fixed Header */}
-      <Header />
+    <main className="relative">
+
 
       {/* Chat Assistant Sidebar */}
       <Sidebar />
@@ -38,9 +49,6 @@ export default function Home() {
 
       {/* CTA Section */}
       <CTASection />
-
-      {/* Footer */}
-      <Footer />
     </main>
   );
 }

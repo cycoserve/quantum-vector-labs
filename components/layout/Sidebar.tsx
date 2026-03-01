@@ -1,52 +1,216 @@
 "use client";
 
-import { useState } from "react";
-import { Bot, Code2, Send } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Bot, Send, X, Loader2, Maximize2, Minimize2, Trash2 } from "lucide-react";
+
+interface Message {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+}
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to latest message
+  useEffect(() => {
+    if (isOpen) {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages, isOpen]);
+
+  const handleClearChat = () => {
+    setMessages([]);
+  };
+
+  const handleToggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const userText = input.trim();
+    if (!userText || isLoading) return;
+
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      role: "user",
+      content: userText,
+    };
+
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
+    setInput("");
+    setIsLoading(true);
+
+    const assistantId = (Date.now() + 1).toString();
+    setMessages((prev) => [
+      ...prev,
+      { id: assistantId, role: "assistant", content: "" },
+    ]);
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: updatedMessages.map(({ role, content }) => ({
+            role,
+            content,
+          })),
+        }),
+      });
+
+      if (!response.ok || !response.body) {
+        throw new Error("Failed to get response");
+      }
+
+      const reader = response.body.getReader();
+      const decoder = new TextDecoder();
+      let accumulated = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        accumulated += decoder.decode(value, { stream: true });
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === assistantId ? { ...m, content: accumulated } : m
+          )
+        );
+      }
+    } catch {
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === assistantId
+            ? { ...m, content: "Sorry, something went wrong. Please try again." }
+            : m
+        )
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
-    <div className="fixed right-6 bottom-6 z-50 flex flex-col items-end gap-4">
+    <div className="fixed right-6 bottom-6 z-50 flex flex-col items-end gap-3">
       {/* Chat Panel */}
-      <div className="glass-panel-primary rounded-2xl p-4 w-64 hidden lg:flex flex-col gap-3 vector-glow border-primary/40">
-        {/* System Status */}
-        <div className="flex items-center gap-2 mb-2">
-          <span className="relative flex h-3 w-3">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-          </span>
-          <span className="text-xs font-bold tracking-widest text-primary uppercase">
-            System Status: Optimized
-          </span>
-        </div>
+      {isOpen && (
+        <div className={`glass-panel rounded-2xl flex flex-col border border-primary/30 shadow-[0_0_40px_rgba(32,211,238,0.15)] overflow-hidden ${isFullscreen ? "fixed inset-0 w-full h-full rounded-none z-[60]" : "w-80 h-[480px]"}`}>
+          {/* Header */}
+          <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-black/20">
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+              </span>
+              <span className="text-sm font-semibold text-white">QVL Assistant</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <button
+                onClick={handleClearChat}
+                className="text-slate-400 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/10"
+                aria-label="Clear chat"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+              <button
+                onClick={handleToggleFullscreen}
+                className="text-slate-400 hover:text-white transition-colors p-1.5 rounded-lg hover:bg-white/10"
+                aria-label={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
+              >
+                {isFullscreen ? (
+                  <Minimize2 className="w-4 h-4" />
+                ) : (
+                  <Maximize2 className="w-4 h-4" />
+                )}
+              </button>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-slate-400 hover:text-white transition-colors p-1 rounded-lg hover:bg-white/10"
+                aria-label="Close chat"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
 
-        {/* Welcome Message */}
-        <p className="text-xs text-slate-400">
-          Welcome to Quantum Vector Labs. How can I assist your enterprise
-          operations today?
-        </p>
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
+            {messages.length === 0 && (
+              <div className="flex flex-col items-center justify-center h-full gap-3 text-center">
+                <div className="size-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center card-ring">
+                  <Bot className="w-6 h-6 text-primary" />
+                </div>
+                <p className="text-sm text-slate-400 max-w-[200px]">
+                  Ask me anything about our AI services.
+                </p>
+              </div>
+            )}
 
-        {/* Input */}
-        <div className="flex gap-2">
-          <input
-            className="bg-slate-900 border border-slate-700 rounded-lg text-xs px-3 py-2 w-full focus:ring-1 focus:ring-primary focus:outline-none text-white placeholder-slate-500"
-            placeholder="Inquire..."
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-          />
+            {messages.map((message) => (
+              <div
+                key={message.id}
+                className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
+                    message.role === "user"
+                      ? "bg-primary text-black font-medium rounded-br-sm"
+                      : "bg-white/5 border border-white/10 text-slate-200 rounded-bl-sm"
+                  }`}
+                >
+                  {message.content || (
+                    <Loader2 className="w-4 h-4 text-primary animate-spin" />
+                  )}
+                </div>
+              </div>
+            ))}
+
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Input */}
+          <form
+            onSubmit={handleSubmit}
+            className="flex items-center gap-2 px-3 py-3 border-t border-white/5 bg-black/20"
+          >
+            <input
+              className="flex-1 bg-slate-900/80 border border-slate-700 rounded-xl text-sm px-3 py-2 focus:ring-1 focus:ring-primary focus:outline-none text-white placeholder-slate-500 transition-all"
+              placeholder="Ask a question..."
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              disabled={isLoading}
+            />
+            <button
+              type="submit"
+              disabled={isLoading || !input.trim()}
+              className="size-9 flex items-center justify-center rounded-xl bg-primary text-black hover:brightness-110 disabled:opacity-40 disabled:cursor-not-allowed transition-all flex-shrink-0"
+              aria-label="Send message"
+            >
+              <Send className="w-4 h-4" />
+            </button>
+          </form>
         </div>
-      </div>
+      )}
 
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="size-16 glass-panel rounded-full flex items-center justify-center border-primary/50 vector-glow group"
+        className="size-14 glass-panel rounded-full flex items-center justify-center border border-primary/50 vector-glow group transition-all hover:scale-105 active:scale-95"
+        aria-label={isOpen ? "Close assistant" : "Open assistant"}
       >
-        <div className="size-10 rounded-full bg-primary/20 flex items-center justify-center border border-primary animate-pulse">
-          <Bot className="text-primary group-hover:rotate-180 transition-transform duration-500 w-5 h-5" />
+        <div className="size-9 rounded-full bg-primary/20 flex items-center justify-center border border-primary">
+          {isOpen ? (
+            <X className="text-primary w-5 h-5" />
+          ) : (
+            <Bot className="text-primary group-hover:scale-110 transition-transform duration-300 w-5 h-5" />
+          )}
         </div>
       </button>
     </div>

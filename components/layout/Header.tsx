@@ -1,16 +1,19 @@
 "use client";
 
+import MobileMenu from "./MobileMenu";
+
 const navLinks = [
-  { label: "Solutions", href: "#" },
-  { label: "Platform", href: "#" },
-  { label: "Research", href: "#" },
-  { label: "Documentation", href: "#" },
+  { label: "Solutions", href: "/solutions" },
+  { label: "Products", href: "/solutions" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Learn QVL", href: "/docs.quantumvectorlabs.com" },
+  { label: "Support", href: "/support" },
 ];
 
 export default function Header() {
   return (
     <header className="fixed top-0 w-full z-40 px-6 py-4">
-      <div className="max-w-7xl mx-auto glass-panel rounded-full px-8 py-3 flex items-center justify-between border-white/5 shadow-[0_0_30px_rgba(32,211,238,0.15)]">
+      <div className="max-w-7xl mx-auto glass-panel rounded-full px-8 py-3 flex items-center justify-between card-ring-hover">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="size-10 text-primary">
@@ -41,9 +44,19 @@ export default function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <button className="bg-primary text-black text-xs font-bold px-5 py-2.5 rounded-full hover:scale-105 transition-transform">
-            INITIATE PROTOCOL
-          </button>
+          {/* Desktop: Show auth buttons */}
+          <div className="hidden md:flex items-center gap-4">
+            <a href="/auth" className="text-sm font-medium text-slate-300 hover:text-primary transition-colors">
+              Log In
+            </a>
+            <a href="/auth" className="bg-primary text-black text-xs font-bold px-5 py-2.5 rounded-full hover:scale-105 transition-transform card-ring-hover">
+              Sign Up
+            </a>
+          </div>
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden">
+            <MobileMenu />
+          </div>
         </div>
       </div>
     </header>

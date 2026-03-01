@@ -67,7 +67,7 @@ export default function StatsSection() {
           {stats.map((stat) => (
             <div 
               key={stat.label}
-              className="glass-panel rounded-2xl p-6 text-center hover:border-primary/30 transition-all duration-300 group"
+              className="glass-panel rounded-2xl p-6 text-center hover:border-primary/30 transition-all duration-300 group card-ring-hover"
             >
               {/* Icon */}
               <div className="mx-auto size-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary/20 transition-colors">

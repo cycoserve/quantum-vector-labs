@@ -56,7 +56,7 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div 
               key={service.title}
-              className="group bento-card glass-panel rounded-3xl p-8 hover:border-primary/50 transition-all duration-300"
+              className="group bento-card glass-panel rounded-3xl p-8 hover:border-primary/50 transition-all duration-300 card-ring-hover"
             >
               <div className="flex items-start gap-4">
                 {/* Icon */}

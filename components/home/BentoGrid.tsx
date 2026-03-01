@@ -46,7 +46,7 @@ export default function BentoGrid() {
       {/* Bento Layout */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
         {/* RAG: Neural Context Engine (Large Card) */}
-        <div className="md:col-span-8 group bento-card glass-panel rounded-3xl p-8 relative overflow-hidden h-[400px]">
+        <div className="md:col-span-8 group bento-card glass-panel rounded-3xl p-8 relative overflow-hidden h-[400px] card-ring-hover">
           <div className="relative z-10 flex flex-col h-full justify-between">
             <div className="space-y-2">
               <div className="size-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20 mb-6">
@@ -76,7 +76,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Small Card: Encrypted Mesh */}
-        <div className="md:col-span-4 bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between">
+        <div className="md:col-span-4 bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between card-ring-hover">
           <div className="size-10 rounded-lg bg-slate-800 flex items-center justify-center text-primary mb-4">
             <Lock className="w-5 h-5" />
           </div>
@@ -90,7 +90,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Small Card: Ultra-Low Latency */}
-        <div className="md:col-span-4 bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between h-[300px]">
+        <div className="md:col-span-4 bento-card glass-panel rounded-3xl p-8 flex flex-col justify-between h-[300px] card-ring-hover">
           <div className="size-10 rounded-lg bg-slate-800 flex items-center justify-center text-primary mb-4">
             <Zap className="w-5 h-5" />
           </div>
@@ -104,7 +104,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Geospatial: Planetary Intelligence (Medium Card) */}
-        <div className="md:col-span-8 bento-card glass-panel rounded-3xl p-0 relative overflow-hidden flex flex-col md:flex-row h-[300px]">
+        <div className="md:col-span-8 bento-card glass-panel rounded-3xl p-0 relative overflow-hidden flex flex-col md:flex-row h-[300px] card-ring-hover">
           <div className="flex-1 p-8 flex flex-col justify-between">
             <div>
               <h3 className="text-2xl font-bold tracking-tight mb-2">
@@ -129,7 +129,7 @@ export default function BentoGrid() {
         </div>
 
         {/* Agentic Systems (Full Width) */}
-        <div className="md:col-span-12 bento-card glass-panel rounded-3xl p-8 relative overflow-hidden group">
+        <div className="md:col-span-12 bento-card glass-panel rounded-3xl p-8 relative overflow-hidden group card-ring-hover">
           <div className="flex flex-col md:flex-row items-center gap-12 relative z-10">
             <div className="flex-1 space-y-6">
               <h3 className="text-4xl font-bold tracking-tighter">
@@ -156,7 +156,7 @@ export default function BentoGrid() {
               </div>
             </div>
             <div className="flex-1 grid grid-cols-2 gap-4 w-full">
-              <div className="h-32 rounded-2xl border border-primary/20 bg-primary/5 p-4 flex flex-col justify-between">
+              <div className="h-32 rounded-2xl border border-primary/20 bg-primary/5 p-4 flex flex-col justify-between card-ring-hover">
                 <Network className="text-primary w-6 h-6" />
                 <span className="text-xs font-medium">Orchestrator V3</span>
               </div>

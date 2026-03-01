@@ -7,41 +7,12 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex flex-col items-end justify-center particle-bg px-4 overflow-hidden">
       {/* Animated SVG Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Cyberpunk Grid Background */}
         <svg 
           className="absolute inset-0 w-full h-full opacity-[0.06]"
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
         >
           <defs>
-            {/* Main Grid Pattern - cyberpunk style lines */}
-            <pattern id="cyber-grid" width="4" height="4" patternUnits="userSpaceOnUse">
-              <path d="M 4 0 L 0 0 0 4" fill="none" stroke="#20d3ee" strokeWidth="0.15" opacity="0.4">
-                <animate attributeName="stroke-opacity" values="0.2;0.5;0.2" dur="2s" repeatCount="indefinite" />
-              </path>
-            </pattern>
-            {/* Thicker grid for major lines */}
-            <pattern id="cyber-grid-major" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#20d3ee" strokeWidth="0.3" opacity="0.6">
-                <animate attributeName="stroke-opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" />
-              </path>
-            </pattern>
-            {/* Scan line gradient */}
-            <linearGradient id="scan-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stopColor="#20d3ee" stopOpacity="0" />
-              <stop offset="45%" stopColor="#20d3ee" stopOpacity="0" />
-              <stop offset="50%" stopColor="#20d3ee" stopOpacity="0.8" />
-              <stop offset="55%" stopColor="#20d3ee" stopOpacity="0" />
-              <stop offset="100%" stopColor="#20d3ee" stopOpacity="0" />
-            </linearGradient>
-            {/* Glow filter for scan line */}
-            <filter id="scan-glow">
-              <feGaussianBlur stdDeviation="1" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
             <linearGradient id="glow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#20d3ee" stopOpacity="0.8" />
               <stop offset="50%" stopColor="#a855f7" stopOpacity="0.4" />
@@ -55,43 +26,6 @@ export default function HeroSection() {
               </feMerge>
             </filter>
           </defs>
-          
-          {/* Minor grid lines */}
-          <rect width="100" height="100" fill="url(#cyber-grid)" />
-          {/* Major grid lines */}
-          <rect width="100" height="100" fill="url(#cyber-grid-major)" />
-          
-          {/* Horizontal scan line */}
-          <rect 
-            x="0" y="0" 
-            width="100" height="100" 
-            fill="url(#scan-gradient)"
-            filter="url(#scan-glow)"
-          >
-            <animate 
-              attributeName="y" 
-              values="-10;110;-10" 
-              dur="6s" 
-              repeatCount="indefinite" 
-            />
-          </rect>
-          
-          {/* Vertical scan line (secondary) */}
-          <rect 
-            x="0" y="0" 
-            width="100" height="100" 
-            fill="url(#scan-gradient)"
-            filter="url(#scan-glow)"
-            opacity="0.5"
-            transform="rotate(90)"
-          >
-            <animate 
-              attributeName="x" 
-              values="-100;100;-100" 
-              dur="8s" 
-              repeatCount="indefinite" 
-            />
-          </rect>
           
           {/* Animated floating orbs */}
           <circle cx="20" cy="30" r="3" fill="#20d3ee" filter="url(#glow)" opacity="0.6">
@@ -227,7 +161,7 @@ export default function HeroSection() {
           <button className="w-full sm:w-auto px-8 py-4 bg-primary text-black font-bold rounded-xl vector-glow hover:brightness-110 transition-all flex items-center justify-center gap-2 group">
             Start Deploying <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
-          <button className="w-full sm:w-auto px-8 py-4 glass-panel border border-white/10 text-white font-bold rounded-xl hover:bg-white/5 transition-all">
+          <button className="w-full sm:w-auto px-8 py-4 glass-panel border border-white/10 text-white font-bold rounded-xl hover:bg-white/5 transition-all card-ring-hover">
             View Documentation
           </button>
         </div>

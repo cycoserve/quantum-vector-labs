@@ -15,6 +15,7 @@
 
   body {
     background-color: var(--background);
+    background-image: radial-gradient(circle at 50% 0%, #0a192f 0%, var(--background) 50%);
     color: var(--foreground);
     font-family: "Space Grotesk", sans-serif;
     overflow-x: hidden;
@@ -32,6 +33,28 @@
 
   .vector-glow {
     box-shadow: 0 0 15px rgba(32, 211, 238, 0.3);
+  }
+
+  /* Static glow for cards - visible in all lighting conditions */
+  .card-glow {
+    box-shadow: 0 0 20px rgba(32, 211, 238, 0.15), 0 0 40px rgba(32, 211, 238, 0.05);
+  }
+
+  /* Card with ring border */
+  .card-ring {
+    @apply border border-primary/20;
+    box-shadow: 0 0 15px rgba(32, 211, 238, 0.1), 0 0 30px rgba(32, 211, 238, 0.05);
+  }
+
+  /* Card ring with glow on hover - brighter tone */
+  .card-ring-hover {
+    @apply border border-primary/20 transition-all duration-300;
+    box-shadow: 0 0 15px rgba(32, 211, 238, 0.1), 0 0 30px rgba(32, 211, 238, 0.05);
+  }
+
+  .card-ring-hover:hover {
+    @apply border-primary/50;
+    box-shadow: 0 0 25px rgba(32, 211, 238, 0.3), 0 0 50px rgba(32, 211, 238, 0.15), 0 0 80px rgba(32, 211, 238, 0.05);
   }
 
   .bento-card {

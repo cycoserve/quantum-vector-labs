@@ -46,7 +46,7 @@ export default function RAGSection() {
             </ul>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-primary text-black font-bold rounded-xl vector-glow hover:brightness-110 transition-all flex items-center justify-center gap-2">
+              <button className="px-8 py-4 bg-primary text-black font-bold rounded-xl vector-glow hover:brightness-110 transition-all flex items-center justify-center gap-2 card-ring-hover">
                 Start Building <ArrowRight className="w-5 h-5" />
               </button>
               <button className="px-8 py-4 glass-panel border border-white/10 text-white font-bold rounded-xl hover:bg-white/5 transition-all">
@@ -58,7 +58,7 @@ export default function RAGSection() {
           {/* Right Visual */}
           <div className="relative">
             {/* Main Card */}
-            <div className="glass-panel-primary rounded-3xl p-8 border-primary/30 vector-glow relative z-10">
+            <div className="glass-panel-primary rounded-3xl p-8 border-primary/30 vector-glow relative z-10 card-ring">
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="size-10 rounded-lg bg-primary/20 flex items-center justify-center">

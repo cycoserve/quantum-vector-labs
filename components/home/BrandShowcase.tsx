@@ -68,7 +68,7 @@ export default function BrandShowcase() {
           ].map((item, index) => (
             <div 
               key={item.label}
-              className="px-6 py-3 glass-panel rounded-full border border-primary/20 hover:border-primary/50 transition-all duration-300 group"
+              className="px-6 py-3 glass-panel rounded-full border border-primary/20 hover:border-primary/50 transition-all duration-300 group card-ring-hover"
             >
               <span className="text-sm text-slate-400 group-hover:text-white transition-colors">
                 {item.label}:{" "}
