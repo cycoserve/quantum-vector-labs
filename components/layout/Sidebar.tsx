@@ -9,6 +9,38 @@ interface Message {
   content: string;
 }
 
+// Parse message content to make links clickable and remove markdown formatting
+function parseMessageContent(content: string): React.ReactNode {
+  // First, remove markdown bold markers (**text** -> text)
+  let processed = content.replace(/\*\*(.+?)\*\*/g, "$1");
+  // Remove italic markers (*text* -> text)
+  processed = processed.replace(/\*(.+?)\*/g, "$1");
+  // Remove inline code markers (`code` -> code)
+  processed = processed.replace(/`(.+?)`/g, "$1");
+  
+  // Split content by URLs to create clickable links
+  const urlRegex = /(https?:\/\/[^\s<]+)/g;
+  const parts = processed.split(urlRegex);
+  
+  return parts.map((part, index) => {
+    if (urlRegex.test(part)) {
+      urlRegex.lastIndex = 0; // Reset regex state
+      return (
+        <a
+          key={index}
+          href={part}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline"
+        >
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -165,8 +197,16 @@ export default function Sidebar() {
                       : "bg-white/5 border border-white/10 text-slate-200 rounded-bl-sm"
                   }`}
                 >
-                  {message.content || (
-                    <Loader2 className="w-4 h-4 text-primary animate-spin" />
+                  {message.role === "user" ? (
+                    message.content || (
+                      <Loader2 className="w-4 h-4 text-primary animate-spin" />
+                    )
+                  ) : (
+                    message.content ? (
+                      parseMessageContent(message.content)
+                    ) : (
+                      <Loader2 className="w-4 h-4 text-primary animate-spin" />
+                    )
                   )}
                 </div>
               </div>
