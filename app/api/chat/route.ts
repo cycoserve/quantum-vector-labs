@@ -1,6 +1,6 @@
 import { createTextStreamResponse } from "ai";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 const SYSTEM_PROMPT = `You are a helpful assistant for Quantum Vector Labs (QVL).
 
