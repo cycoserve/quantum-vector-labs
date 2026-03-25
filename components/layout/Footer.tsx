@@ -54,16 +54,16 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-[#010918]/80 backdrop-blur-xl">
+    <footer className="border-t border-slate-200 dark:border-white/5 bg-white/80 dark:bg-[#010918]/80 backdrop-blur-xl">
       {/* Main Footer Grid */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-6xl mx-auto px-6 py-16">
         {/* Top Section: Logo + Tagline */}
         <div className="mb-12">
           <div className="flex items-center gap-3 mb-3">
             <div className="size-7 text-primary">
               <Hexagon className="w-full h-full" strokeWidth={1.5} />
             </div>
-            <span className="text-base font-bold tracking-widest uppercase text-white">
+            <span className="text-base font-bold tracking-widest uppercase text-slate-800 dark:text-white">
               Quantum Vector Labs
             </span>
           </div>
@@ -84,7 +84,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="group flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors duration-200"
+                      className="group flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
                     >
                       {link.label}
                       <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-60 transition-opacity duration-200 -translate-y-px" />

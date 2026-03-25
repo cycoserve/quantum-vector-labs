@@ -5,6 +5,7 @@ import {
   Database, 
   Globe, 
   AppWindow, 
+  Brain,
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
@@ -23,10 +24,10 @@ const services = [
     features: ["Secure embedding storage", "Semantic search ready", "Private & encrypted"],
   },
   {
-    icon: Globe,
-    title: "Multi-Modal Models",
-    description: "Access the latest inference-optimized GPUs for text, image, audio, and video processing. OpenAI-compatible API for easy integration.",
-    features: ["Latest GPU hardware", "OpenAI-compatible", "Text, Image, Audio, Video"],
+    icon: Brain,
+    title: "Leader Brain",
+    description: "File-native AI intelligence layer built on JSON and Markdown. Drop it on any VPS — your AI knows your history, rules, and patterns without training.",
+    features: ["File-native: JSON + Markdown", "Self-hosted on any VPS", "Pattern library & agent pipeline"],
   },
   {
     icon: AppWindow,
@@ -38,14 +39,14 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="py-24 px-6 bg-space-blue/50">
+    <section className="py-24 px-6 bg-slate-100/60 dark:bg-space-blue/50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-slate-900 dark:text-white">
             Everything You Need for <span className="text-primary">Enterprise AI</span>
           </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             From inference to deployment, we provide the complete infrastructure for building 
             intelligent applications that scale globally.
           </p>
@@ -53,7 +54,7 @@ export default function ServicesSection() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service, index) => (
+          {services.map((service) => (
             <div 
               key={service.title}
               className="group bento-card glass-panel rounded-3xl p-8 hover:border-primary/50 transition-all duration-300 card-ring-hover"
@@ -66,17 +67,17 @@ export default function ServicesSection() {
                 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold tracking-tight mb-3">
+                  <h3 className="text-2xl font-bold tracking-tight mb-3 text-slate-900 dark:text-white">
                     {service.title}
                   </h3>
-                  <p className="text-slate-400 leading-relaxed mb-4">
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
                     {service.description}
                   </p>
                   
                   {/* Features */}
                   <ul className="space-y-2 mb-4">
                     {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-2 text-sm text-slate-300">
+                      <li key={feature} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
                         <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                         {feature}
                       </li>

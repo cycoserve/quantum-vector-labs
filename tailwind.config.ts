@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,6 +14,8 @@ const config: Config = {
         "background-dark": "#010918",
         "space-blue": "#020617",
         "glass-border": "rgba(34, 211, 238, 0.2)",
+        foreground: "var(--foreground)",
+        background: "var(--background)",
       },
       fontFamily: {
         display: ["Space Grotesk", "sans-serif"],

@@ -1,186 +1,65 @@
 'use client';
 
-import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
-import { User, Session } from '@supabase/supabase-js';
-import { 
-  supabase, 
-  AuthUser, 
-  OAuthProviderType,
-  signIn as signInWithCredentials,
-  signUp as signUpWithCredentials,
-  signInWithOAuth,
-  signOut as signOutFromSupabase,
-  getCurrentUser
-} from '@/lib/supabase';
+/**
+ * Stack Auth context — thin wrapper that re-exports Stack's
+ * hooks/types so the rest of the app can stay largely the same.
+ *
+ * For reading the current user use `useUser()` from @stackframe/stack directly,
+ * or use the `useAuth()` convenience hook below.
+ */
 
-interface AuthContextType {
-  user: AuthUser | null;
-  session: Session | null;
-  isLoading: boolean;
-  isAuthenticated: boolean;
-  signIn: (email: string, password: string) => Promise<void>;
-  signUp: (email: string, password: string, username: string) => Promise<void>;
-  signInWithProvider: (provider: OAuthProviderType) => Promise<void>;
-  signOut: () => Promise<void>;
-  refreshUser: () => Promise<void>;
-}
+import { useUser, useStackApp } from '@stackframe/stack';
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export type OAuthProviderType = 'google' | 'github';
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<AuthUser | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+// Re-export so existing imports in the app keep working
+export { useUser };
 
-  const refreshUser = useCallback(async () => {
-    try {
-      const currentUser = await getCurrentUser();
-      setUser(currentUser);
-    } catch (error) {
-      console.error('Error refreshing user:', error);
-      setUser(null);
-    }
-  }, []);
+/**
+ * Convenience hook that mirrors the previous `useAuth()` shape
+ * consumed by AuthForm.tsx and other components.
+ */
+export function useAuth() {
+  const user = useUser();
+  const app = useStackApp();
 
-  useEffect(() => {
-    const initializeAuth = async () => {
-      try {
-        const { data: { session } } = await supabase.auth.getSession();
-        setSession(session);
-        
-        if (session?.user) {
-          setUser(session.user as AuthUser);
-        } else {
-          setUser(null);
-        }
-      } catch (error) {
-        console.error('Error initializing auth:', error);
-        setUser(null);
-        setSession(null);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    initializeAuth();
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        setSession(session);
-        
-        if (session?.user) {
-          setUser(session.user as AuthUser);
-        } else {
-          setUser(null);
-        }
-        
-        setIsLoading(false);
-      }
-    );
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
+  const isLoading = false; // Stack handles loading state internally via Suspense
+  const isAuthenticated = !!user;
 
   const signIn = async (email: string, password: string) => {
-    setIsLoading(true);
-    try {
-      const { user: userData, session: sessionData } = await signInWithCredentials({
-        email,
-        password,
-      });
-      
-      if (userData) {
-        setUser(userData as AuthUser);
-      }
-      if (sessionData) {
-        setSession(sessionData);
-      }
-    } catch (error) {
-      console.error('Sign in error:', error);
-      throw error;
-    } finally {
-      setIsLoading(false);
-    }
+    await app.signInWithCredential({ email, password });
   };
 
-  const signUp = async (email: string, password: string, username: string) => {
-    setIsLoading(true);
-    try {
-      const { user: userData, session: sessionData } = await signUpWithCredentials({
-        email,
-        password,
-        username,
-      });
-      
-      if (userData) {
-        setUser(userData as AuthUser);
-      }
-      if (sessionData) {
-        setSession(sessionData);
-      }
-    } catch (error) {
-      console.error('Sign up error:', error);
-      throw error;
-    } finally {
-      setIsLoading(false);
-    }
+  const signUp = async (email: string, password: string, _displayName?: string) => {
+    // Stack's signUpWithCredential only accepts email + password + redirect options.
+    // displayName can be set post-signup via user.update({ displayName }).
+    await app.signUpWithCredential({ email, password });
   };
 
   const signInWithProvider = async (provider: OAuthProviderType) => {
-    setIsLoading(true);
-    try {
-      await signInWithOAuth(provider);
-    } catch (error) {
-      console.error('OAuth sign in error:', error);
-      throw error;
-    } finally {
-      setIsLoading(false);
-    }
+    await app.signInWithOAuth(provider);
   };
 
   const signOut = async () => {
-    setIsLoading(true);
-    try {
-      await signOutFromSupabase();
-      setUser(null);
-      setSession(null);
-    } catch (error) {
-      console.error('Sign out error:', error);
-      throw error;
-    } finally {
-      setIsLoading(false);
+    if (user) {
+      await user.signOut();
     }
   };
 
-  const value: AuthContextType = {
+  const refreshUser = async () => {
+    // Stack keeps user state reactive — no manual refresh needed
+  };
+
+  return {
     user,
-    session,
     isLoading,
-    isAuthenticated: !!user,
+    isAuthenticated,
     signIn,
     signUp,
     signInWithProvider,
     signOut,
     refreshUser,
   };
-
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
 }
 
-export function useAuth() {
-  const context = useContext(AuthContext);
-  
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  
-  return context;
-}
-
-export default AuthContext;
+export default useAuth;

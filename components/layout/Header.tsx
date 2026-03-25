@@ -1,14 +1,45 @@
 "use client";
 
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { Sun, Moon } from "lucide-react";
 import MobileMenu from "./MobileMenu";
+import Link from "next/link";
 
 const navLinks = [
   { label: "Solutions", href: "/solutions" },
-  { label: "Products", href: "/solutions" },
+  { label: "Learn QVL", href: "/learn" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Learn QVL", href: "/docs.quantumvectorlabs.com" },
-  { label: "Support", href: "/support" },
+  { label: "Support", href: "/support" }
 ];
+
+function ThemeToggle() {
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return <div className="w-9 h-9" />;
+  }
+
+  const isDark = resolvedTheme === "dark";
+
+  return (
+    <button
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="relative w-9 h-9 flex items-center justify-center rounded-full border border-primary/20 bg-transparent hover:border-primary/50 hover:bg-primary/10 transition-all duration-300 text-primary"
+      title={isDark ? "Light mode" : "Dark mode"}
+    >
+      {isDark ? (
+        <Sun className="w-4 h-4" />
+      ) : (
+        <Moon className="w-4 h-4" />
+      )}
+    </button>
+  );
+}
 
 export default function Header() {
   return (
@@ -17,15 +48,19 @@ export default function Header() {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="size-10 text-primary">
-            <img 
-              src="/logo-icon.svg" 
-              alt="Quantum Vector Labs Logo" 
-              className="w-full h-full"
-            />
+            <Link href="/">
+              <img
+                src="/logo-icon.svg"
+                alt="Quantum Vector Labs Logo"
+                className="w-full h-full"
+              />
+            </Link>
           </div>
           <h2 className="text-lg font-bold tracking-wider uppercase">
-            <span className="text-primary font-bold">QVL</span>{" "}
-            <span className="text-white font-thin">LABS</span>
+            <Link href={"/"}>
+              <span className="text-primary font-bold">Quantum VL</span>{" "}
+            </Link>
+          
           </h2>
         </div>
 
@@ -35,7 +70,7 @@ export default function Header() {
             <a
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-slate-300 hover:text-primary transition-colors"
+              className="text-sm font-medium text-slate-500 dark:text-slate-300 hover:text-primary transition-colors"
             >
               {link.label}
             </a>
@@ -43,10 +78,13 @@ export default function Header() {
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
+          {/* Theme Toggle - always visible */}
+          <ThemeToggle />
+
           {/* Desktop: Show auth buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="/auth" className="text-sm font-medium text-slate-300 hover:text-primary transition-colors">
+            <a href="/auth" className="text-sm font-medium text-slate-500 dark:text-slate-300 hover:text-primary transition-colors">
               Log In
             </a>
             <a href="/auth" className="bg-primary text-black text-xs font-bold px-5 py-2.5 rounded-full hover:scale-105 transition-transform card-ring-hover">

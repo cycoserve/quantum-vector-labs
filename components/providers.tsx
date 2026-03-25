@@ -1,11 +1,22 @@
 'use client';
 
-import { AuthProvider } from '@/lib/auth-context';
+import { ThemeProvider } from 'next-themes';
+import { StackProvider, StackTheme } from '@stackframe/stack';
+import { stackClientApp } from '@/stack/client';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <AuthProvider>
-      {children}
-    </AuthProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange={false}
+    >
+      <StackProvider app={stackClientApp}>
+        <StackTheme>
+          {children}
+        </StackTheme>
+      </StackProvider>
+    </ThemeProvider>
   );
 }

@@ -1,19 +1,23 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const navLinks = [
   { label: "Solutions", href: "/solutions" },
-  { label: "Products", href: "/solutions" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Learn QVL", href: "/docs.quantumvectorlabs.com" },
+  { label: "Learn QVL", href: "/learn" },
   { label: "Support", href: "/support" },
 ];
 
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   // Close menu on click outside
   useEffect(() => {
@@ -35,12 +39,14 @@ export default function MobileMenu() {
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
 
+  const isDark = resolvedTheme === "dark";
+
   return (
     <div className="relative" ref={menuRef}>
       {/* Hamburger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 rounded-lg glass-panel border border-primary/20 hover:border-primary/50 transition-colors text-slate-300 hover:text-primary flex items-center justify-center"
+        className="p-2 rounded-lg glass-panel border border-primary/20 hover:border-primary/50 transition-colors text-slate-500 dark:text-slate-300 hover:text-primary flex items-center justify-center"
         aria-label={isOpen ? "Close menu" : "Open menu"}
         aria-expanded={isOpen}
       >
@@ -61,18 +67,40 @@ export default function MobileMenu() {
               key={link.label}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="px-4 py-3 text-sm font-medium text-slate-300 rounded-xl hover:bg-white/10 hover:text-primary transition-colors"
+              className="px-4 py-3 text-sm font-medium text-slate-500 dark:text-slate-300 rounded-xl hover:bg-primary/10 hover:text-primary transition-colors"
             >
               {link.label}
             </a>
           ))}
           
-          <div className="h-px bg-white/10 my-2 mx-2" />
+          <div className="h-px bg-slate-200 dark:bg-white/10 my-2 mx-2" />
+
+          {/* Theme Toggle row */}
+          {mounted && (
+            <button
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="px-4 py-3 text-sm font-medium text-slate-500 dark:text-slate-300 rounded-xl hover:bg-primary/10 hover:text-primary transition-colors flex items-center gap-3"
+            >
+              {isDark ? (
+                <>
+                  <Sun className="w-4 h-4 text-primary" />
+                  Switch to Light Mode
+                </>
+              ) : (
+                <>
+                  <Moon className="w-4 h-4 text-primary" />
+                  Switch to Dark Mode
+                </>
+              )}
+            </button>
+          )}
+
+          <div className="h-px bg-slate-200 dark:bg-white/10 my-2 mx-2" />
           
           <a
             href="/auth"
             onClick={() => setIsOpen(false)}
-            className="px-4 py-3 text-sm font-medium text-slate-300 rounded-xl hover:bg-white/10 hover:text-primary transition-colors"
+            className="px-4 py-3 text-sm font-medium text-slate-500 dark:text-slate-300 rounded-xl hover:bg-primary/10 hover:text-primary transition-colors"
           >
             Log In
           </a>
