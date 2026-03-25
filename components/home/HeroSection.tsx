@@ -131,28 +131,28 @@ export default function HeroSection() {
         </div> */}
 
         {/* Headline */}
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.05]">
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.05] text-slate-900 dark:text-white">
           Serve GenAI <br />
           <span className="text-gradient">At Planetary Scale</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="text-base md:text-lg text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
+        <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto font-light leading-relaxed">
           Build intelligent systems that scale across continents without infrastructure complexity.
         </p>
 
         {/* Service Tags */}
         <div className="flex flex-wrap justify-center gap-2 py-2">
-          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300 flex items-center gap-2 hover:border-primary/50 transition-colors">
+          <span className="px-4 py-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary/50 transition-colors">
             <Cpu className="w-4 h-4 text-primary" /> Inference
           </span>
-          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300 flex items-center gap-2 hover:border-primary/50 transition-colors">
+          <span className="px-4 py-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary/50 transition-colors">
             <Database className="w-4 h-4 text-primary" /> Vector Database
           </span>
-          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300 flex items-center gap-2 hover:border-primary/50 transition-colors">
+          <span className="px-4 py-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary/50 transition-colors">
             <Globe className="w-4 h-4 text-primary" /> AI Agents
           </span>
-          <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300 flex items-center gap-2 hover:border-primary/50 transition-colors">
+          <span className="px-4 py-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary/50 transition-colors">
             <Bot className="w-4 h-4 text-primary" /> Custom Apps
           </span>
         </div>
@@ -165,7 +165,7 @@ export default function HeroSection() {
             </button>
           </Link>
           <Link href={"/learn"}>
-            <button className="w-full sm:w-auto px-8 py-4 glass-panel border border-white/10 text-white font-bold rounded-xl hover:bg-white/5 transition-all card-ring-hover">
+            <button className="w-full sm:w-auto px-8 py-4 glass-panel border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all card-ring-hover">
               View Documentation
             </button>
           </Link>

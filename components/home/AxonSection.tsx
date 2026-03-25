@@ -61,7 +61,7 @@ export default function AxonSection() {
         </div>
 
         {/* Subheading */}
-        <p className="text-center text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto mb-16">
+        <p className="text-center text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto mb-16">
           Quantum Vector Labs is not a typical tool vendor. AXON and Leader Brain
           power our own operations — from pricing strategy to product roadmap.
           We ship from the inside out.
@@ -76,19 +76,19 @@ export default function AxonSection() {
                 <Zap className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <h3 className="text-xl font-bold">Eating Our Own Cooking</h3>
-                <p className="text-sm text-slate-400">Internal AI Operations</p>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">Eating Our Own Cooking</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400">Internal AI Operations</p>
               </div>
             </div>
 
-            <p className="text-slate-300 leading-relaxed">
+            <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
               Every company we sell to is skeptical — and rightfully so. That&apos;s
               why we built the system on ourselves first. The same AXON agent
               network and Leader Brain framework that power our client pipelines
               are the exact tools managing QVL operations today.
             </p>
 
-            <p className="text-slate-300 leading-relaxed">
+            <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
               This creates a live feedback loop: when we improve our agent
               architecture, our own operations improve immediately. Real stakes,
               real data, real accountability.
@@ -102,7 +102,7 @@ export default function AxonSection() {
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                  <span className="text-slate-300 text-sm">{item}</span>
+                  <span className="text-slate-700 dark:text-slate-300 text-sm">{item}</span>
                 </li>
               ))}
             </ul>
@@ -110,7 +110,7 @@ export default function AxonSection() {
 
           {/* Right: Ops grid */}
           <div className="space-y-4">
-            <p className="text-xs font-bold tracking-widest uppercase text-slate-500 mb-2">
+            <p className="text-xs font-bold tracking-widest uppercase text-slate-500 dark:text-slate-500 mb-2">
               What AXON &amp; Leader Brain Handle at QVL
             </p>
             {operatedBy.map(({ icon: Icon, label, description }) => (
@@ -122,8 +122,8 @@ export default function AxonSection() {
                   <Icon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">{label}</h4>
-                  <p className="text-sm text-slate-400 mt-0.5">{description}</p>
+                  <h4 className="font-semibold text-slate-900 dark:text-white">{label}</h4>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">{description}</p>
                 </div>
               </div>
             ))}

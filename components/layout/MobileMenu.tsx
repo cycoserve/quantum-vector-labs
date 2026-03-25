@@ -55,7 +55,7 @@ export default function MobileMenu() {
 
       {/* Dropdown Menu */}
       <div
-        className={`absolute top-full right-0 mt-4 w-64 rounded-2xl glass-panel shadow-2xl overflow-hidden transition-all duration-200 origin-top-right ${
+        className={`absolute top-full right-0 mt-4 w-64 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-primary/20 shadow-2xl overflow-hidden transition-all duration-200 origin-top-right ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0 pointer-events-auto"
             : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
