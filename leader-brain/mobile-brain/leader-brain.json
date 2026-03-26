@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "name": "QVL Mobile Leader Brain",
+    "codename": "AXON-MOBILE",
+    "version": "1.0.0",
+    "status": "active",
+    "owner": "High Limit Designs",
+    "company": "Quantum Vector Labs",
+    "created": "2026-03-25",
+    "last_updated": "2026-03-25",
+    "brain_type": "mobile-extension",
+    "description": "The intelligence node for the QVL Mobile application. This brain focuses on dashboard views, user account management, and mobile-specific agent interactions.",
+    "changelog": [
+      {
+        "version": "1.0.0",
+        "date": "2026-03-25",
+        "note": "Initial mobile brain setup. Derived from AXON-PRIME. Optimized for Expo/React Native architecture."
+      }
+    ]
+  },
+
+  "company": {
+    "name": "Quantum Vector Labs",
+    "abbreviation": "QVL",
+    "tagline": "AI Infrastructure for Builders",
+    "mobile_app": {
+      "name": "QVL Mobile",
+      "stack": "Expo (React Native) + TypeScript + NativeWind",
+      "auth": "Stack Auth (Mobile SDK)",
+      "database": "Neon DB (Future Persistence)",
+      "navigation": "Expo Router (Tabs-based)",
+      "icons": "Lucide React Native",
+      "build_instructions": {
+        "init": "npx create-expo-app QVLMobile --template tabs",
+        "styling": "Install NativeWind and configure tailwind.config.js for Cyan/Space Blue theme",
+        "auth_integration": "Install @stack-auth/react-native and wrap the root layout with StackProvider",
+        "theme_sync": "Synchronize 'glass-panel' and 'vector-glow' aesthetics using NativeWind utilities"
+      },
+      "core_screens": [
+        {
+          "id": "scr_001",
+          "name": "Splash",
+          "purpose": "Initial brand loading and identity verification"
+        },
+        {
+          "id": "scr_002",
+          "name": "Onboarding",
+          "purpose": "3-slide introduction to Neural Horizon, Context-Awareness, and Planetary Scale"
+        },
+        {
+          "id": "scr_003",
+          "name": "Login/Auth",
+          "purpose": "Secure entry via Stack Auth (Email/Password + OAuth)"
+        },
+        {
+          "id": "scr_004",
+          "name": "Dashboard (Home)",
+          "purpose": "Real-time API usage, recent AI activities, and account status"
+        },
+        {
+          "id": "scr_005",
+          "name": "Settings",
+          "purpose": "Theme management and account configuration"
+        }
+      ]
+    }
+  },
+
+  "current_state": {
+    "active_phase": "Mobile MVP",
+    "focus": "Generate initial Expo screens based on mobile-brain blueprints",
+    "last_pulse": null,
+    "last_dream_id": null,
+    "pending_decisions": [
+      "Confirm mobile-specific OAuth redirect URLs in Stack Auth dashboard",
+      "Finalize dashboard chart library for React Native (e.g., Victory or Gifted Charts)"
+    ],
+    "blockers": [
+      "Mobile project environment not yet initialized"
+    ],
+    "active_dreams": [],
+    "notes": "The mobile app is a carbon copy of the web dashboard logic with a simplified mobile-first UI."
+  },
+
+  "agent_system": {
+    "pipeline": "qualifier → validator → builder → supervisor → promoter",
+    "agents": [
+      {
+        "id": "agent_001",
+        "name": "Qualifier",
+        "role": "Mobile UX/UI Auditor",
+        "rules": [
+          "Ensure touch targets are at least 44x44dp",
+          "Maintain legibility on small screens",
+          "Flag complex UI patterns that should be simplified for mobile"
+        ],
+        "voice": "Direct. UX-focused."
+      },
+      {
+        "id": "agent_003",
+        "name": "Builder",
+        "role": "React Native Producer",
+        "rules": [
+          "Use NativeWind for all styling",
+          "Prefer functional components and hooks",
+          "Ensure cross-platform compatibility (iOS/Android)"
+        ],
+        "voice": "Precise. Efficient."
+      }
+    ]
+  },
+
+  "execution_rules": [
+    "Mobile-first responsive design",
+    "No feature without validation purpose",
+    "All components must be theme-aware (Light/Dark)",
+    "The UI must feel 'alive' with subtle animations",
+    "Maintain the Space Blue / Cyan color palette strictly"
+  ],
+
+  "feature_roadmap": [
+    {
+      "phase": "Mobile MVP",
+      "status": "active",
+      "features": [
+        "Splash & Onboarding slides",
+        "Stack Auth integration",
+        "Dashboard layout",
+        "Profile & Settings screens"
+      ]
+    },
+    {
+      "phase": "Mobile V2",
+      "status": "planned",
+      "features": [
+        "Interactive AI Chat widget (mobile-optimized)",
+        "Real-time push notifications for AXON events",
+        "Biometric authentication (FaceID/TouchID)"
+      ]
+    }
+  ]
+}

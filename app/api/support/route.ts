@@ -2,39 +2,33 @@ import { createTextStreamResponse } from "ai";
 
 export const runtime = "nodejs";
 
-const SUPPORT_SYSTEM_PROMPT = `You are the Quantum Vector Labs (QVL) Support Assistant.
+export async function POST(req: Request) {
+  const { messages, formContext } = await req.json();
+
+  const fullSystemPrompt = `You are the Quantum Vector Labs (QVL) Support Assistant.
 Your goal is to help users resolve issues with QVL software, including NPM packages, GitHub repositories, and the online hosted platform.
 
-Core Knowledge:
-- NPM/GitHub: Helping with installation, configuration, and troubleshooting of QVL packages.
-- Software Usage: Explaining how to use QVL's Serverless Inference, Vector Databases, and AI agent clusters.
-- Hosted Platform: Assisting with dashboard navigation, API key management, and deployment issues.
-
-Instructions:
-- Use the context provided in the user's initial support request form to offer a specific solution.
+CORE INSTRUCTIONS:
+- You have been provided with a support request. ANALYZE the details below and provide a solution immediately. 
+- NEVER ask the user for their name, email, or issue description, as they are listed below. 
+- You have FULL ACCESS to the user's form submission.
 - Be technical but accessible. If you can provide a code snippet or a step-by-step guide, do so.
 - If you are UNABLE to solve the issue after a few attempts, or if the user asks for a human, you MUST provide the support email: support@quantumvectorlabs.com.
-- Do NOT use any markdown formatting except for code blocks if absolutely necessary (though the UI might not support it well, the request says no markdown in the other chatbot).
-- Actually, keep it consistent with the main chatbot: NO markdown bold/italics/bullets. Just plain text.
+- Do NOT use any markdown formatting except for code blocks. NO bold/italics/bullets. Just plain text.
+
+USER SUPPORT REQUEST CONTEXT:
+-------------------------------
+Name: ${formContext.name}
+Email: ${formContext.email}
+Issue Type: ${formContext.issueType}
+Description: ${formContext.description}
+-------------------------------
 
 Rules:
 - Professional, Slack-like tone.
 - Short, direct answers.
 - If you don't know, say "I'm not sure, but let me connect you with a human expert." and give the email.
 - Keep responses concise.`;
-
-export async function POST(req: Request) {
-  const { messages, formContext } = await req.json();
-
-  // Inject form context into the first message or as a system message
-  const contextMessage = {
-    role: "system",
-    content: `User Support Request Context:
-Name: ${formContext.name}
-Email: ${formContext.email}
-Issue Type: ${formContext.issueType}
-Description: ${formContext.description}`,
-  };
 
   const response = await fetch(process.env.VULTR_API_URL!, {
     method: "POST",
@@ -45,8 +39,7 @@ Description: ${formContext.description}`,
     body: JSON.stringify({
       model: process.env.VULTR_MODEL ?? "deepseek-r1-distill-qwen-32b",
       messages: [
-        { role: "system", content: SUPPORT_SYSTEM_PROMPT },
-        contextMessage,
+        { role: "system", content: fullSystemPrompt },
         ...messages,
       ],
       stream: true,

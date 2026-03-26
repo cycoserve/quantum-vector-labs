@@ -55,12 +55,17 @@ export default function SupportPage() {
       content: "Wait a moment... I am analyzing your request to find the best solution for you." 
     }]);
 
+    const initialUserMessage = { 
+      role: "user", 
+      content: `I need help with the following issue: ${formData.description}` 
+    };
+
     try {
       const response = await fetch("/api/support", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: [{ role: "user", content: "I need help with the issue I just submitted in the form." }],
+          messages: [initialUserMessage],
           formContext: formData,
         }),
       });
@@ -75,7 +80,12 @@ export default function SupportPage() {
         const { done, value } = await reader.read();
         if (done) break;
         accumulated += decoder.decode(value, { stream: true });
-        setMessages([{ id: assistantId, role: "assistant", content: accumulated }]);
+
+        // Update the FIRST assistant message with the stream
+        setMessages([
+          { id: Date.now().toString() + "-user", role: "user", content: formData.description },
+          { id: assistantId, role: "assistant", content: accumulated }
+        ]);
       }
     } catch (err) {
       setMessages([{ id: assistantId, role: "assistant", content: "Sorry, I encountered an error. Please contact support@quantumvectorlabs.com directly." }]);
