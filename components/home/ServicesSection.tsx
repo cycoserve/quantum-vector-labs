@@ -44,7 +44,7 @@ export default function ServicesSection() {
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-slate-900 dark:text-white">
-            Everything You Need for <span className="text-primary">Enterprise AI</span>
+            Everything You Need for <span className="text-gradient">Enterprise AI</span>
           </h2>
           <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             From inference to deployment, we provide the complete infrastructure for building 

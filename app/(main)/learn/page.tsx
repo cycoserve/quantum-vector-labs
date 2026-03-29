@@ -188,7 +188,7 @@ export default function LearnPage() {
               <span className="ml-2 text-xs text-slate-500 font-mono">leader-brain/ — folder structure</span>
             </div>
             <pre className="text-sm text-slate-300 font-mono leading-relaxed whitespace-pre">
-{`leader-brain/
+              {`leader-brain/
 ├── brain.json                        ← agent config + state
 ├── master/
 │   ├── leader-brain-persona.md       ← identity & voice
@@ -389,7 +389,6 @@ export default function LearnPage() {
             </div>
           </div>
         </section>
-
       </div>
     </main>
   );
@@ -398,9 +397,11 @@ export default function LearnPage() {
 function SectionLabel({ label, title }: { label: string; title: string }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="text-xs font-mono text-primary/60 tracking-widest">/{label}</span>
-      <div className="h-px flex-1 bg-white/5" />
       <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">{title}</h2>
+      <div className="h-px flex-1 bg-white/5" />
+      <span className="text-xs font-mono text-white tracking-widest">/{label}</span>
+
+
     </div>
   );
 }

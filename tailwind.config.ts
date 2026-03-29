@@ -18,7 +18,7 @@ const config: Config = {
         background: "var(--background)",
       },
       fontFamily: {
-        display: ["Space Grotesk", "sans-serif"],
+        sans: ['-apple'],
       },
       borderRadius: {
         DEFAULT: "0.5rem",

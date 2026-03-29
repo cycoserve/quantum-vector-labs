@@ -51,19 +51,19 @@ export default function FeaturesSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="flex justify-center items-center text-center gap-6 mb-16">
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
-              Infrastructure Built for <span className="text-primary">AI at Scale</span>
+            <h2 className=" font-bold tracking-tighter text-2xl md:text-4xl">
+              Infrastructure < br/><span className="text-gradient text-3xl md:text-6xl"> Built for AI at Scale</span>
             </h2>
-            <p className="text-slate-400 max-w-lg">
+            <p className="text-slate-400 max-w-2xl text-center">
               Enterprise-grade features designed to handle the most demanding AI workloads without operational complexity.
             </p>
           </div>
           
-          <button className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
+          {/* <button className="text-sm font-bold text-primary flex items-center gap-1 hover:gap-2 transition-all">
             View all features <ArrowRight className="w-4 h-4" />
-          </button>
+          </button> */}
         </div>
 
         {/* Features Grid */}

@@ -14,7 +14,7 @@ export default function CTASection() {
         <div className="relative z-10 space-y-8">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">
             Ready to redefine your <br />
-            <span className="text-primary">neural horizon?</span>
+            <span className="text-primary">Heural horizon?</span>
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto">
             Join the leading enterprise firms building the next generation of
@@ -24,7 +24,7 @@ export default function CTASection() {
             <Link href="/auth" className="px-10 py-4 bg-white text-black font-bold rounded-xl hover:bg-primary transition-colors flex items-center gap-2 card-ring-hover">
               Get Started <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="docs.quantumvectorlabs.com" className="px-10 py-4 glass-panel border border-white/20 font-bold rounded-xl hover:bg-white/5 card-ring-hover">
+            <Link href="/learn" className="px-10 py-4 glass-panel border border-white/20 font-bold rounded-xl hover:bg-white/5 card-ring-hover">
               Documentation
             </Link>
           </div>

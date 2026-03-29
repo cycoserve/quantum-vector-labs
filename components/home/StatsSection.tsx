@@ -1,9 +1,9 @@
 "use client";
 
-import { 
-  Globe2, 
-  Cpu, 
-  Zap, 
+import {
+  Globe2,
+  Cpu,
+  Zap,
   Shield,
   Users,
   Building2
@@ -34,18 +34,18 @@ const stats = [
     label: "Private",
     description: "Data never leaves your control",
   },
-  {
-    icon: Users,
-    value: "10K+",
-    label: "Active Users",
-    description: "Developers building on QVL",
-  },
-  {
-    icon: Building2,
-    value: "500+",
-    label: "Enterprises",
-    description: "Trust Quantum Vector Labs",
-  },
+  // {
+  //   icon: Users,
+  //   value: "10K+",
+  //   label: "Active Users",
+  //   description: "Developers building on QVL",
+  // },
+  // {
+  //   icon: Building2,
+  //   value: "500+",
+  //   label: "Enterprises",
+  //   description: "Trust Quantum Vector Labs",
+  // },
 ];
 
 export default function StatsSection() {
@@ -54,8 +54,11 @@ export default function StatsSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
-            Built for <span className="text-primary">Enterprise Scale</span>
+          <h2 className=" font-bold tracking-tighter">
+            <span className="text-2xl md:text-4xl">
+              QVL is built for
+            </span> <br />
+            <span className="text-gradient text-3xl md:text-6xl ">Enterprise Scale</span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
             Trusted by leading enterprises worldwide to power their AI infrastructure
@@ -63,9 +66,9 @@ export default function StatsSection() {
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
           {stats.map((stat) => (
-            <div 
+            <div
               key={stat.label}
               className="glass-panel rounded-2xl p-6 text-center hover:border-primary/30 transition-all duration-300 group card-ring-hover"
             >

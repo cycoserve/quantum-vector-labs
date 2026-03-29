@@ -1,11 +1,12 @@
 "use client";
 
-import { 
-  Brain, 
+import {
+  Brain,
   ArrowRight,
   CheckCircle2,
   Sparkles,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function RAGSection() {
   return (
@@ -18,11 +19,11 @@ export default function RAGSection() {
               <Brain className="w-4 h-4" />
               Leader Brain
             </div>
-            
+
             <h2 className="text-3xl md:text-5xl font-bold tracking-tighter text-slate-900 dark:text-white">
-              Build Custom AI Without <span className="text-primary">Training Models</span>
+              Custom AI Without <span className="text-gradient">Training Models</span>
             </h2>
-            
+
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
               The Leader Brain is a file-native intelligence layer — JSON and Markdown.
               No framework lock-in, no black box. Drop it on any VPS and connect it to
@@ -32,7 +33,7 @@ export default function RAGSection() {
             <ul className="space-y-4">
               {[
                 "File-native: JSON + Markdown — readable by humans and LLMs",
-                "Deploy on any VPS — fully self-hosted, zero vendor lock-in",
+                // "Deploy on any VPS — fully self-hosted, zero vendor lock-in",
                 "Agents route tasks through a defined pipeline automatically",
                 "Pattern library learns from decisions over time",
                 "No model training required — connect, configure, ship",
@@ -45,12 +46,18 @@ export default function RAGSection() {
             </ul>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-primary text-black font-bold rounded-xl vector-glow hover:brightness-110 transition-all flex items-center justify-center gap-2 card-ring-hover">
-                Start Building <ArrowRight className="w-5 h-5" />
-              </button>
-              <button className="px-8 py-4 glass-panel border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all">
-                View Documentation
-              </button>
+              <Link href={"/auth"}>
+                <button className="px-8 py-4 bg-primary text-black font-bold rounded-xl vector-glow hover:brightness-110 transition-all flex items-center justify-center gap-2 card-ring-hover">
+                  Start Building <ArrowRight className="w-5 h-5" />
+                </button>
+              </Link>
+
+              <Link href={"/learn"}>
+                <button className="px-8 py-4 glass-panel border border-slate-200 dark:border-white/10 text-slate-800 dark:text-white font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 transition-all">
+                  View Docs
+                </button>
+              </Link>
+
             </div>
           </div>
 
@@ -59,7 +66,7 @@ export default function RAGSection() {
             {/* Main Card */}
             <div className="glass-panel-primary rounded-3xl p-8 border-primary/30 vector-glow relative z-10 card-ring">
               {/* Header */}
-              <div className="flex items-center justify-between gap-3 mb-5">
+              <div className="flex items-center justify-between gap-3 mb-24">
                 <div className="flex items-center gap-3">
                   <div className="size-10 rounded-lg bg-primary/20 flex items-center justify-center">
                     <Brain className="w-5 h-5 text-primary" />
@@ -199,7 +206,7 @@ export default function RAGSection() {
             <div className="absolute -bottom-12 -left-12 w-40 h-40 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
 
             {/* Floating label */}
-            <div className="absolute -bottom-4 -right-4 flex items-center gap-2 px-4 py-2 bg-white dark:bg-space-blue border border-primary/30 rounded-full shadow-lg">
+            <div className="absolute -bottom-12 -right-4 flex items-center gap-2 px-4 py-2 bg-white dark:bg-space-blue border border-primary/30 rounded-full shadow-lg">
               <Brain className="w-4 h-4 text-primary" />
               <span className="text-xs font-bold text-primary">File-Native · Zero Lock-In</span>
             </div>

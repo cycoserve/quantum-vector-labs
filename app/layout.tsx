@@ -16,7 +16,20 @@ export const metadata: Metadata = {
     template: "%s | Quantum Vector Labs"
   },
   description: "The definitive vector-native platform for autonomous operations, context-aware reasoning, and planetary-scale inference. Deploy GenAI models globally without infrastructure complexity.",
-  keywords: ["GenAI", "Inference", "Vector Database", "AI Agents", "RAG", "Serverless AI", "Quantum Vector Labs", "AXON", "Leader Brain"],
+  keywords: [
+    "GenAI", 
+    "Inference", 
+    "Vector Database", 
+    "AI Agents", 
+    "RAG", 
+    "Serverless AI", 
+    "Quantum Vector Labs", 
+    "AXON", 
+    "Leader Brain",
+    "Agent Orchestration",
+    "GPU Cloud",
+    "Edge AI"
+  ],
   authors: [{ name: "Quantum Vector Labs Team" }],
   creator: "Quantum Vector Labs",
   publisher: "Quantum Vector Labs",
@@ -24,6 +37,18 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/logo-icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png' },
+    ],
   },
   openGraph: {
     type: 'website',
@@ -34,10 +59,10 @@ export const metadata: Metadata = {
     description: 'Deploy and serve GenAI models globally — without the complexity of infrastructure management.',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og/main.png',
         width: 1200,
         height: 630,
-        alt: 'Quantum Vector Labs - Neural Horizon',
+        alt: 'Quantum Vector Labs - Planetary-Scale GenAI Infrastructure',
       },
     ],
   },
@@ -46,7 +71,7 @@ export const metadata: Metadata = {
     title: 'Quantum Vector Labs | Planetary-Scale GenAI Infrastructure',
     description: 'The vector-native platform for autonomous operations and context-aware reasoning.',
     creator: '@qvlabs',
-    images: ['/og-image.png'],
+    images: ['/og/main.png'],
   },
   robots: {
     index: true,
@@ -69,8 +94,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Quantum Vector Labs',
+    url: 'https://qvlabs.ai',
+    logo: 'https://qvlabs.ai/logo-icon.svg',
+    sameAs: [
+      'https://twitter.com/qvlabs',
+      'https://github.com/quantum-vector-labs',
+    ],
+    description: 'The definitive vector-native platform for autonomous operations, context-aware reasoning, and planetary-scale inference.',
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className={`${spaceGrotesk.variable} antialiased`}>
         <Providers>
           {children}

@@ -131,8 +131,10 @@ export default function HeroSection() {
         </div> */}
 
         {/* Headline */}
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.05] text-slate-900 dark:text-white">
-          Serve GenAI <br />
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.05] text-slate-900 dark:text-white"><span className="text-2xl md:text-4xl">
+          Serve GenAI
+        </span>
+           <br />
           <span className="text-gradient">At Planetary Scale</span>
         </h1>
 

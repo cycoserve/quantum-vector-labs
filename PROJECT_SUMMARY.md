@@ -199,7 +199,7 @@ The floating chat assistant is a core feature of the homepage:
 
 ## 6. Authentication System
 
-- **Provider:** Supabase Auth
+- **Provider:** Stack Auth
 - **Methods supported:** Email/password, Google OAuth, GitHub OAuth
 - **Context:** `lib/auth-context.tsx` exports `AuthProvider` and `useAuth()` hook
 - **Client:** `lib/supabase.ts` initializes the Supabase client and exports typed auth helper functions

@@ -9,7 +9,7 @@ import RAGSection from "@/components/home/RAGSection";
 import AxonSection from "@/components/home/AxonSection";
 import BrandShowcase from "@/components/home/BrandShowcase";
 import CTASection from "@/components/home/CTASection";
-import Footer from "@/components/layout/Footer";
+// import Footer from "@/components/layout/Footer";
 
 export default function Home() {
   return (

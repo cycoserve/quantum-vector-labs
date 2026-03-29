@@ -54,9 +54,9 @@ export default function AxonSection() {
 
         {/* Headline */}
         <div className="text-center mb-6">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter leading-tight">
-            We Don&apos;t Just Build AI Systems.{" "}
-            <span className="text-gradient">We Run On Them.</span>
+          <h2 className=" font-bold tracking-tighter leading-tight">
+            <span className="text-xl md:text-3xl">We Don&apos;t Just Build Systems.{" "}</span> < br/>
+            <span className="text-gradient text-4xl md:text-6xl">We Run On Them!</span>
           </h2>
         </div>
 
