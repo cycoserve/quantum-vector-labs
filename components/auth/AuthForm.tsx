@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useStackApp } from '@stackframe/stack';
-import { Mail, Lock, User, Github, Loader2 } from 'lucide-react';
+import { Mail, Lock, User, Github, Loader2, LogIn, ShieldCheck, HelpCircle, UserPlus } from 'lucide-react';
 
 type AuthView = 'login' | 'signup';
 type OAuthProviderType = 'google' | 'github';
@@ -275,7 +275,7 @@ export default function AuthForm() {
               </>
             ) : (
               <>
-                <span className="material-symbols-outlined text-base leading-none">login</span>
+                {view === 'login' ? <LogIn className="w-4 h-4" /> : <UserPlus className="w-4 h-4" />}
                 {view === 'login' ? 'Sign In' : 'Create Account'}
               </>
             )}
@@ -304,12 +304,12 @@ export default function AuthForm() {
 
       {/* Footer Links */}
       <div className="mt-4 flex justify-center gap-6">
-        <a href="#" className="text-[11px] text-slate-400 dark:text-slate-500 hover:text-primary transition-colors flex items-center gap-1">
-          <span className="material-symbols-outlined text-sm leading-none">shield</span>
+        <a href="#" className="text-[11px] text-slate-400 dark:text-slate-500 hover:text-primary transition-colors flex items-center gap-1.5">
+          <ShieldCheck className="w-3.5 h-3.5" />
           Privacy
         </a>
-        <a href="#" className="text-[11px] text-slate-400 dark:text-slate-500 hover:text-primary transition-colors flex items-center gap-1">
-          <span className="material-symbols-outlined text-sm leading-none">help</span>
+        <a href="#" className="text-[11px] text-slate-400 dark:text-slate-500 hover:text-primary transition-colors flex items-center gap-1.5">
+          <HelpCircle className="w-3.5 h-3.5" />
           Help
         </a>
       </div>

@@ -11,6 +11,7 @@
 ## Technology Stack
 
 - **Frontend**: Next.js 16 App Router (TSX), React 19, TailwindCSS 3.4, Space Grotesk font via `next/font/google`, Lucide React icons
+- **Icons**: Lucide React (Standard). Avoid Material Icons or other third-party icon fonts.
 - **Backend**: Next.js API routes (Node.js runtime) — `/api/chat`, `/api/brain/dream`, `/api/brain/state`
 - **Authentication**: Stack Auth — Modern, developer-friendly auth system.
 - **Database**: Neon DB — Serverless Postgres (Planned for future data persistence; currently stateless MVP).
@@ -80,6 +81,12 @@ The pattern established in `Sidebar.tsx` — create a placeholder assistant mess
 
 ### Stack Auth Integration
 Auth logic is managed via Stack Auth's SDK. Components can use Stack's hooks (e.g., `useUser`) to handle session state without complex custom providers.
+
+### Branding & Theming
+The app uses a theme-aware branding system to ensure accessibility across light and dark modes.
+- **Dark Mode Primary**: `#20d3ee` (Cyan) — Optimized for vibrant glowing effects against dark backgrounds.
+- **Light Mode Primary**: `#0e7490` (Cyan 700) — A deeper, high-contrast blue that ensures WCAG-compliant legibility on light backgrounds while maintaining brand identity.
+- **Implementation**: Managed via `var(--color-primary)` in `app/globals.css` and mapped in `tailwind.config.ts`.
 
 ---
 

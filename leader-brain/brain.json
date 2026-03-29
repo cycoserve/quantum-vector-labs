@@ -465,5 +465,15 @@
       "Build features without validated purpose",
       "Lock customers into proprietary formats"
     ]
+  },
+
+  "models": {
+    "gemini_cli": {
+      "rules": [
+        "Stop using overly technical or 'off the wall' wording in the UI (e.g., avoid 'Return to core', 'Node_Offline').",
+        "Prioritize clear, user-friendly language for better UI/UX (e.g., use 'Return Home', 'Page Not Found').",
+        "Ensure all dialog and button labels make logical sense to a standard user, not just an AI developer."
+      ]
+    }
   }
 }

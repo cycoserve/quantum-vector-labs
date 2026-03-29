@@ -4,7 +4,7 @@ import AuthForm from '@/components/auth/AuthForm';
 
 export default function AuthPage() {
   return (
-    <div className="min-h-screen bg-[#f4f7fb] dark:bg-[#010918] font-[var(--font-space-grotesk)] text-slate-800 dark:text-slate-100 flex items-center justify-center overflow-hidden relative">
+    <div className="min-h-screen bg-[#f4f7fb] dark:bg-[#010918] text-slate-800 dark:text-slate-100 flex items-center justify-center overflow-hidden relative">
 
       {/* Background Effects — subtle in light, vivid in dark */}
       <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">

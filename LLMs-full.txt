@@ -1,0 +1,76 @@
+# Quantum Vector Labs (QVL) - LLM Documentation
+
+This file serves as a comprehensive guide for AI agents and LLMs to understand the architecture, stack, and intent of the QVL project.
+
+## 1. Project Identity
+- **Name:** Quantum Vector Labs
+- **Domain:** qvlabs.ai
+- **Purpose:** Marketing and operational platform for a GenAI infrastructure provider.
+- **Philosophy:** Files over Frameworks. Intelligence as Code.
+
+## 2. Core Technical Stack
+- **Framework:** Next.js 16 (App Router)
+- **Runtime:** Node.js (React 19)
+- **Language:** TypeScript 5
+- **Styling:** TailwindCSS 3.4 (Custom Cyberpunk Theme)
+- **Authentication:** Stack Auth (@stackframe/stack)
+- **AI Inference:** Vultr Serverless Inference (OpenAI-compatible)
+- **AI SDK:** Vercel AI SDK v6 (Streaming)
+- **Database (planned):** Neon DB (Postgres)
+
+## 3. Key Architectural Concepts
+
+### Leader Brain
+A file-native intelligence layer stored in the `leader-brain/` directory. It uses Markdown files to provide persistent memory, personality, and context to AI agents. It avoids vendor lock-in by treating "System Prompts as a Knowledge Base."
+
+### AXON (Autonomous eXecution and Orchestration Network)
+The multi-agent execution layer that operates on the Leader Brain. It orchestrates specialised agents (Planner, Executor, Critic, Memory) to fulfill "Dreams" (tasks).
+
+### AI Chatbot (Sidebar)
+A floating assistant powered by `/api/chat`. It uses manual SSE stream parsing instead of abstraction hooks for maximum control and transparency.
+
+## 4. Directory Structure Map
+- `app/`: Next.js App Router (Pages & API Routes). Includes `(auth)`, `(main)`, and `(user)` route groups.
+- `components/`: React components (home, layout, auth)
+- `lib/`: Shared utilities (auth hooks, brain API, mddb)
+- `stack/`: Stack Auth client/server configurations
+- `leader-brain/`: The "Memory" of the system (Markdown files)
+- `public/`: Static assets and OpenGraph images
+- `stack/`: Auth configuration
+
+## 5. Development Patterns
+- **Styling:** Use custom utility classes: `.glass-panel`, `.vector-glow`, `.card-ring`, `.text-gradient`.
+- **Auth:** Use the `useAuth()` hook from `lib/auth-context.tsx`.
+- **Inference:** Route all LLM requests through `/api/chat` (Vultr Inference).
+- **Metadata:** SEO is managed in `layout.tsx` files using the Next.js Metadata API.
+
+## 6. Key Routes
+- `/` — Marketing landing page.
+- `/auth` — Sign in / sign up.
+- `/settings` — User settings (General, Account, Privacy, Billing).
+- `/learn` — Documentation and concept deep-dives.
+- `/pricing` — Service tiers and scaling options.
+- `/solutions` — Industry-specific AI solutions.
+- `not-found` — Custom 404 error page.
+
+## 7. Authentication (Stack Auth)
+The project has migrated from Supabase to Stack Auth. 
+- **Client App:** `stack/client.ts`
+- **Server App:** `stack/server.ts`
+- **Handler:** `app/handler/[...stack]/page.tsx`
+- **Context:** `lib/auth-context.tsx` provides a compatibility layer for existing components.
+
+## 7. SEO & Metadata
+- **Base URL:** https://qvlabs.ai
+- **Sitemap:** Dynamic at `/sitemap.xml`
+- **Robots:** Configured at `/robots.txt`
+- **OG Images:** Located in `/public/og/`
+
+## 8. Critical Constraints
+- Do not modify `.env.local` via agents without explicit permission.
+- Always maintain the dark theme (`forced dark mode`).
+- Ensure all new features are documented in the Leader Brain project entry.
+- Follow the "Research -> Strategy -> Execution" workflow.
+
+---
+*Documentation for LLMs v1.0.0 - 2026-03-29*
