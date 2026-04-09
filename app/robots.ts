@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/admin', '/api/'],
     },
-    sitemap: 'https://qvlabs.ai/sitemap.xml',
+    sitemap: 'https://cycoserve.com/sitemap.xml',
   };
 }

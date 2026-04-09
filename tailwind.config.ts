@@ -9,11 +9,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#20d3ee",
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
         "background-light": "#f1f2f4",
         "background-dark": "#010918",
         "space-blue": "#020617",
-        "glass-border": "rgba(34, 211, 238, 0.2)",
+        "glass-border": "rgba(168, 85, 247, 0.2)",
         foreground: "var(--foreground)",
         background: "var(--background)",
       },
@@ -26,7 +26,7 @@ const config: Config = {
         xl: "1.5rem",
       },
       boxShadow: {
-        "vector-glow": "0 0 15px rgba(32, 211, 238, 0.3)",
+        "vector-glow": "0 0 15px rgba(168, 85, 247, 0.3)",
       },
       animation: {
         ping: "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",

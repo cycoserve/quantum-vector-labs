@@ -7,14 +7,14 @@ export const metadata: Metadata = {
     canonical: '/solutions',
   },
   openGraph: {
-    title: "Industry Solutions | Quantum Vector Labs",
+    title: "Industry Solutions | CycoServe Labs",
     description: "Industry-specific AI agent clusters designed for autonomous operations and context-aware reasoning.",
     images: [
       {
         url: '/og/solutions.png',
         width: 1200,
         height: 630,
-        alt: 'QVL Industry Solutions',
+        alt: 'Cy Industry Solutions',
       },
     ],
   },

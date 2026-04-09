@@ -44,7 +44,7 @@ export default function FeaturesSection() {
         <div 
           className="w-full h-full"
           style={{
-            background: "radial-gradient(circle at 70% 50%, rgba(32, 211, 238, 0.3) 0%, transparent 70%)",
+            background: "radial-gradient(circle at 70% 50%, rgba(168, 85, 247, 0.3) 0%, transparent 70%)",
           }}
         ></div>
       </div>

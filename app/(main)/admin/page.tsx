@@ -275,7 +275,7 @@ export default function AdminPage() {
               disabled={submitStatus === 'loading'}
               className="mt-2 w-full py-3 rounded-lg font-semibold text-sm tracking-wide transition-all duration-200
                 bg-primary/10 border border-primary/40 text-primary
-                hover:bg-primary/20 hover:border-primary/70 hover:shadow-[0_0_20px_rgba(32,211,238,0.2)]
+                hover:bg-primary/20 hover:border-primary/70 hover:shadow-[0_0_20px_rgba(168,85,247,0.2)]
                 disabled:opacity-40 disabled:cursor-not-allowed
                 active:scale-[0.98]"
             >

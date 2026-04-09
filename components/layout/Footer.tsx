@@ -64,7 +64,7 @@ export default function Footer() {
               <Hexagon className="w-full h-full" strokeWidth={1.5} />
             </div>
             <span className="text-base font-bold tracking-widest uppercase text-slate-800 dark:text-white">
-              Quantum Vector Labs
+              CycoServe Labs
             </span>
           </div>
           <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
@@ -104,7 +104,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="flex items-center gap-2 text-xs text-slate-500 font-medium tracking-widest uppercase">
             <Hexagon className="w-4 h-4 text-slate-600" strokeWidth={1.5} />
-            <span>© {new Date().getFullYear()} Quantum Vector Labs. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} CycoServe Labs. All rights reserved.</span>
           </div>
 
           {/* Social Icons */}

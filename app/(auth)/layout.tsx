@@ -1,20 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Sign In | Quantum Vector Labs',
-  description: 'Access your QVL account or create a new one. Join the neural horizon today.',
+  title: 'Sign In | CycoServe Labs',
+  description: 'Access your CycoServe Labs account or create a new one. Join the neural horizon today.',
   alternates: {
     canonical: '/auth',
   },
   openGraph: {
-    title: "Authentication | Quantum Vector Labs",
+    title: "Authentication | CycoServe Labs",
     description: "Join our platform for autonomous operations and context-aware reasoning.",
     images: [
       {
         url: '/og/auth.png',
         width: 1200,
         height: 630,
-        alt: 'QVL Authentication',
+        alt: 'Cy Authentication',
       },
     ],
   },

@@ -18,7 +18,7 @@ export default function CTASection() {
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto">
             Join the leading enterprise firms building the next generation of
-            autonomous operations on Quantum Vector Labs.
+            autonomous operations on CycoServe Labs.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/auth" className="px-10 py-4 bg-white text-black font-bold rounded-xl hover:bg-primary transition-colors flex items-center gap-2 card-ring-hover">

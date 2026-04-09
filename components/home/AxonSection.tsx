@@ -62,7 +62,7 @@ export default function AxonSection() {
 
         {/* Subheading */}
         <p className="text-center text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto mb-16">
-          Quantum Vector Labs is not a typical tool vendor. AXON and Leader Brain
+          CycoServe Labs is not a typical tool vendor. AXON and Leader Brain
           power our own operations — from pricing strategy to product roadmap.
           We ship from the inside out.
         </p>
@@ -85,7 +85,7 @@ export default function AxonSection() {
               Every company we sell to is skeptical — and rightfully so. That&apos;s
               why we built the system on ourselves first. The same AXON agent
               network and Leader Brain framework that power our client pipelines
-              are the exact tools managing QVL operations today.
+              are the exact tools managing Cy operations today.
             </p>
 
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
@@ -96,7 +96,7 @@ export default function AxonSection() {
 
             <ul className="space-y-3 pt-2">
               {[
-                "Proven in production on QVL's own infrastructure",
+                "Proven in production on Cy's own infrastructure",
                 "Continuous self-improvement loop between system and operator",
                 "No demo-ware — what clients get is what we use",
               ].map((item) => (
@@ -111,7 +111,7 @@ export default function AxonSection() {
           {/* Right: Ops grid */}
           <div className="space-y-4">
             <p className="text-xs font-bold tracking-widest uppercase text-slate-500 dark:text-slate-500 mb-2">
-              What AXON &amp; Leader Brain Handle at QVL
+              What AXON &amp; Leader Brain Handle at CycoServe
             </p>
             {operatedBy.map(({ icon: Icon, label, description }) => (
               <div

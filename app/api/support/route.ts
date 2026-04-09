@@ -5,8 +5,8 @@ export const runtime = "nodejs";
 export async function POST(req: Request) {
   const { messages, formContext } = await req.json();
 
-  const fullSystemPrompt = `You are the Quantum Vector Labs (QVL) Support Assistant.
-Your goal is to help users resolve issues with QVL software, including NPM packages, GitHub repositories, and the online hosted platform.
+  const fullSystemPrompt = `You are the CycoServe Labs (Cy) Support Assistant.
+Your goal is to help users resolve issues with CycoServe software, including NPM packages, GitHub repositories, and the online hosted platform.
 
 CORE INSTRUCTIONS:
 - You have been provided with a support request. ANALYZE the details below and provide a solution immediately. 

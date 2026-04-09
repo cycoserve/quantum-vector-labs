@@ -149,7 +149,7 @@ export default function SupportPage() {
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
             Get instant answers for NPM packages, GitHub repos, and platform usage. 
-            Our Support AI is trained on all QVL documentation.
+            Our Support AI is trained on all CycoServe documentation.
           </p>
         </div>
 
@@ -255,7 +255,7 @@ export default function SupportPage() {
               <div className="pt-2">
                 <div className="p-4 rounded-2xl bg-primary/5 border border-primary/20">
                   <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-center">
-                    All QVL software status: <span className="text-emerald-500 font-bold uppercase ml-1">Operational</span>
+                    All CycoServe software status: <span className="text-emerald-500 font-bold uppercase ml-1">Operational</span>
                   </p>
                 </div>
               </div>

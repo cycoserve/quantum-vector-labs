@@ -38,13 +38,13 @@ const stats = [
   //   icon: Users,
   //   value: "10K+",
   //   label: "Active Users",
-  //   description: "Developers building on QVL",
+  //   description: "Developers building on CycoServe",
   // },
   // {
   //   icon: Building2,
   //   value: "500+",
   //   label: "Enterprises",
-  //   description: "Trust Quantum Vector Labs",
+  //   description: "Trust CycoServe Labs",
   // },
 ];
 
@@ -56,7 +56,7 @@ export default function StatsSection() {
         <div className="text-center mb-16 space-y-4">
           <h2 className=" font-bold tracking-tighter">
             <span className="text-2xl md:text-4xl">
-              QVL is built for
+              CycoServe is built for
             </span> <br />
             <span className="text-gradient text-3xl md:text-6xl ">Enterprise Scale</span>
           </h2>

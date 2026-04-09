@@ -102,7 +102,7 @@ export default function SettingsPage() {
           <div className="size-6 rounded bg-primary/20 border border-primary/40 flex items-center justify-center shrink-0">
              <div className="size-2 rounded-full bg-primary" />
           </div>
-          {isExpanded && <span className="ml-3 font-bold text-xs uppercase tracking-tighter animate-in fade-in duration-300">QVL_Nodes</span>}
+          {isExpanded && <span className="ml-3 font-bold text-xs uppercase tracking-tighter animate-in fade-in duration-300">Cy_Nodes</span>}
         </div>
 
         {/* Navigation Items */}
@@ -246,7 +246,7 @@ export default function SettingsPage() {
                         onClick={() => setTheme(t.id)}
                         className={`flex flex-col items-center justify-center gap-2 p-3 rounded-xl border transition-all ${
                           mounted && theme === t.id
-                            ? "border-primary/50 bg-primary/5 text-primary shadow-[0_0_15px_rgba(32,211,238,0.1)]"
+                            ? "border-primary/50 bg-primary/5 text-primary shadow-[0_0_15px_rgba(168,85,247,0.1)]"
                             : "border-surface-border/50 bg-black/10 text-muted hover:border-primary/30 hover:text-foreground"
                         }`}
                       >

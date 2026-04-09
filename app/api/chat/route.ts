@@ -2,9 +2,9 @@ import { createTextStreamResponse } from "ai";
 
 export const runtime = "nodejs";
 
-const SYSTEM_PROMPT = `You are a helpful assistant for Quantum Vector Labs (QVL).
+const SYSTEM_PROMPT = `You are a helpful assistant for CycoServe Labs (Cy).
 
-QVL offers:
+CycoServe Labs offers:
 - Serverless Inference: Deploy GenAI models globally across six continents — no infrastructure to manage, self-optimizing.
 - Vector Databases: Private, secure vector DBs for RAG — custom AI outputs without model training.
 - Multi-Modal Models: Inference-optimized GPU-backed models.

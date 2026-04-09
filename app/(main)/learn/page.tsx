@@ -328,7 +328,7 @@ export default function LearnPage() {
                 <thead>
                   <tr className="border-b border-white/5">
                     <th className="text-left px-6 py-4 text-slate-500 font-medium w-[180px]">Feature</th>
-                    <th className="text-left px-6 py-4 font-bold text-primary">QVL Leader Brain</th>
+                    <th className="text-left px-6 py-4 font-bold text-primary">Cy Leader Brain</th>
                     <th className="text-left px-6 py-4 text-slate-400 font-medium">Flowise</th>
                     <th className="text-left px-6 py-4 text-slate-400 font-medium">Vector DB</th>
                   </tr>
@@ -355,7 +355,7 @@ export default function LearnPage() {
             className="absolute inset-0 pointer-events-none opacity-20"
             style={{
               background:
-                "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(32,211,238,0.5) 0%, transparent 70%)",
+                "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(168,85,247,0.5) 0%, transparent 70%)",
             }}
           />
           <div className="relative z-10">

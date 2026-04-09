@@ -29,8 +29,8 @@ export default function BackgroundLines() {
         className="absolute inset-0 dark:opacity-[0.04] opacity-[0.06]"
         style={{
           backgroundImage: `
-            linear-gradient(to right, #20d3ee 1px, transparent 1px),
-            linear-gradient(to bottom, #20d3ee 1px, transparent 1px)
+            linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px)
           `,
           backgroundSize: '4rem 4rem',
           backgroundPosition: `0px -${offset * 0.3}px`,

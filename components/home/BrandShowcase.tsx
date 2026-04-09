@@ -51,7 +51,7 @@ export default function BrandShowcase() {
         {/* Tagline */}
         <h2 className="text-4xl md:text-6xl font-bold tracking-tighter">
           <span className="text-gradient">
-            Quantum Vector Labs
+            CycoServe Labs
           </span>
         </h2>
 

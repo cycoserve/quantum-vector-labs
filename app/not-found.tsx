@@ -6,7 +6,7 @@ import BackgroundLines from '@/components/layout/BackgroundLines';
 
 /**
  * Minimal and compact Not Found (404) page.
- * Adheres to the QVL cyberpunk aesthetic with glass panels and theme-aware colors.
+ * Adheres to the CycoServe cyberpunk aesthetic with glass panels and theme-aware colors.
  */
 export default function NotFound() {
   return (
@@ -40,7 +40,7 @@ export default function NotFound() {
         {/* Subtle footer tag */}
         <div className="mt-8 text-center">
           <span className="text-[8px] font-mono text-muted uppercase tracking-[0.4em] opacity-40">
-            Quantum Vector Labs // Error_Control
+            CycoServe Labs // Error_Control
           </span>
         </div>
       </div>

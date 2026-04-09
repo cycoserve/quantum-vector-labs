@@ -12,8 +12,8 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL('https://qvlabs.ai'),
   title: {
-    default: "Quantum Vector Labs | Planetary-Scale GenAI Infrastructure",
-    template: "%s | Quantum Vector Labs"
+    default: "CycoServe Labs | Planetary-Scale GenAI Infrastructure",
+    template: "%s | CycoServe Labs"
   },
   description: "The definitive vector-native platform for autonomous operations, context-aware reasoning, and planetary-scale inference. Deploy GenAI models globally without infrastructure complexity.",
   keywords: [
@@ -23,16 +23,16 @@ export const metadata: Metadata = {
     "AI Agents", 
     "RAG", 
     "Serverless AI", 
-    "Quantum Vector Labs", 
+    "CycoServe Labs", 
     "AXON", 
     "Leader Brain",
     "Agent Orchestration",
     "GPU Cloud",
     "Edge AI"
   ],
-  authors: [{ name: "Quantum Vector Labs Team" }],
-  creator: "Quantum Vector Labs",
-  publisher: "Quantum Vector Labs",
+  authors: [{ name: "CycoServe Labs Team" }],
+  creator: "CycoServe Labs",
+  publisher: "CycoServe Labs",
   formatDetection: {
     email: false,
     address: false,
@@ -54,21 +54,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://qvlabs.ai',
-    siteName: 'Quantum Vector Labs',
-    title: 'Quantum Vector Labs | Planetary-Scale GenAI Infrastructure',
+    siteName: 'CycoServe Labs',
+    title: 'CycoServe Labs | Planetary-Scale GenAI Infrastructure',
     description: 'Deploy and serve GenAI models globally — without the complexity of infrastructure management.',
     images: [
       {
         url: '/og/main.png',
         width: 1200,
         height: 630,
-        alt: 'Quantum Vector Labs - Planetary-Scale GenAI Infrastructure',
+        alt: 'CycoServe Labs - Planetary-Scale GenAI Infrastructure',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Quantum Vector Labs | Planetary-Scale GenAI Infrastructure',
+    title: 'CycoServe Labs | Planetary-Scale GenAI Infrastructure',
     description: 'The vector-native platform for autonomous operations and context-aware reasoning.',
     creator: '@qvlabs',
     images: ['/og/main.png'],
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    "theme-color": "#20d3ee",
+    "theme-color": "#7e22ce",
   },
 };
 
@@ -97,7 +97,7 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Quantum Vector Labs',
+    name: 'CycoServe Labs',
     url: 'https://qvlabs.ai',
     logo: 'https://qvlabs.ai/logo-icon.svg',
     sameAs: [

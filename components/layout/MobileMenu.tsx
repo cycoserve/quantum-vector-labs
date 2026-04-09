@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 const navLinks = [
   { label: "Solutions", href: "/solutions" },
   { label: "Pricing", href: "/pricing" },
-  { label: "Learn QVL", href: "/learn" },
+  { label: "Learn Cy", href: "/learn" },
   { label: "Support", href: "/support" },
 ];
 

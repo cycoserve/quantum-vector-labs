@@ -15,9 +15,9 @@ export default function HeroSection() {
         >
           <defs>
             <linearGradient id="glow-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#20d3ee" stopOpacity="0.8" />
+              <stop offset="0%" stopColor="#a855f7" stopOpacity="0.8" />
               <stop offset="50%" stopColor="#a855f7" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#20d3ee" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#a855f7" stopOpacity="0.8" />
             </linearGradient>
             <filter id="glow">
               <feGaussianBlur stdDeviation="2" result="coloredBlur" />
@@ -29,7 +29,7 @@ export default function HeroSection() {
           </defs>
 
           {/* Animated floating orbs */}
-          <circle cx="20" cy="30" r="3" fill="#20d3ee" filter="url(#glow)" opacity="0.6">
+          <circle cx="20" cy="30" r="3" fill="#a855f7" filter="url(#glow)" opacity="0.6">
             <animate attributeName="cy" values="30;70;30" dur="8s" repeatCount="indefinite" />
             <animate attributeName="opacity" values="0.6;0.3;0.6" dur="4s" repeatCount="indefinite" />
           </circle>
@@ -37,31 +37,31 @@ export default function HeroSection() {
             <animate attributeName="cy" values="60;20;60" dur="10s" repeatCount="indefinite" />
             <animate attributeName="opacity" values="0.5;0.2;0.5" dur="5s" repeatCount="indefinite" />
           </circle>
-          <circle cx="50" cy="80" r="2.5" fill="#20d3ee" filter="url(#glow)" opacity="0.4">
+          <circle cx="50" cy="80" r="2.5" fill="#a855f7" filter="url(#glow)" opacity="0.4">
             <animate attributeName="cy" values="80;40;80" dur="12s" repeatCount="indefinite" />
             <animate attributeName="opacity" values="0.4;0.7;0.4" dur="6s" repeatCount="indefinite" />
           </circle>
           <circle cx="70" cy="25" r="1.5" fill="#a855f7" filter="url(#glow)" opacity="0.6">
             <animate attributeName="cy" values="25;65;25" dur="7s" repeatCount="indefinite" />
           </circle>
-          <circle cx="30" cy="55" r="2" fill="#20d3ee" filter="url(#glow)" opacity="0.5">
+          <circle cx="30" cy="55" r="2" fill="#a855f7" filter="url(#glow)" opacity="0.5">
             <animate attributeName="cy" values="55;35;55" dur="9s" repeatCount="indefinite" />
           </circle>
 
           {/* Animated connecting lines */}
-          <line x1="20" y1="30" x2="50" y2="80" stroke="#20d3ee" strokeWidth="0.1" opacity="0.3">
+          <line x1="20" y1="30" x2="50" y2="80" stroke="#a855f7" strokeWidth="0.1" opacity="0.3">
             <animate attributeName="opacity" values="0.3;0.5;0.3" dur="4s" repeatCount="indefinite" />
           </line>
           <line x1="50" y1="80" x2="80" y2="60" stroke="#a855f7" strokeWidth="0.1" opacity="0.3">
             <animate attributeName="opacity" values="0.3;0.5;0.3" dur="5s" repeatCount="indefinite" />
           </line>
-          <line x1="80" y1="60" x2="70" y2="25" stroke="#20d3ee" strokeWidth="0.1" opacity="0.3">
+          <line x1="80" y1="60" x2="70" y2="25" stroke="#a855f7" strokeWidth="0.1" opacity="0.3">
             <animate attributeName="opacity" values="0.3;0.5;0.3" dur="6s" repeatCount="indefinite" />
           </line>
           <line x1="70" y1="25" x2="20" y2="30" stroke="#a855f7" strokeWidth="0.1" opacity="0.3">
             <animate attributeName="opacity" values="0.3;0.5;0.3" dur="7s" repeatCount="indefinite" />
           </line>
-          <line x1="30" y1="55" x2="70" y2="25" stroke="#20d3ee" strokeWidth="0.1" opacity="0.2">
+          <line x1="30" y1="55" x2="70" y2="25" stroke="#a855f7" strokeWidth="0.1" opacity="0.2">
             <animate attributeName="opacity" values="0.2;0.4;0.2" dur="8s" repeatCount="indefinite" />
           </line>
         </svg>
@@ -70,7 +70,7 @@ export default function HeroSection() {
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[800px] pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse at center, rgba(32, 211, 238, 0.15) 0%, rgba(168, 85, 247, 0.08) 30%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, rgba(168, 85, 247, 0.15) 0%, rgba(126, 34, 206, 0.08) 30%, transparent 70%)",
             animation: "pulse-glow 8s ease-in-out infinite",
           }}
         />
@@ -79,7 +79,7 @@ export default function HeroSection() {
         <div
           className="absolute top-0 left-0 w-full h-full pointer-events-none"
           style={{
-            background: "linear-gradient(180deg, transparent 0%, rgba(32, 211, 238, 0.02) 50%, transparent 100%)",
+            background: "linear-gradient(180deg, transparent 0%, rgba(168, 85, 247, 0.02) 50%, transparent 100%)",
             animation: "wave-move 12s ease-in-out infinite",
           }}
         />
@@ -98,7 +98,7 @@ export default function HeroSection() {
         <div
           className="absolute inset-0 pointer-events-none opacity-5"
           style={{
-            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(32, 211, 238, 0.1) 2px, rgba(32, 211, 238, 0.1) 4px)`,
+            backgroundImage: `repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(168, 85, 247, 0.1) 2px, rgba(168, 85, 247, 0.1) 4px)`,
             animation: "scanlines 10s linear infinite",
           }}
         />
@@ -108,7 +108,7 @@ export default function HeroSection() {
           className="absolute left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-40 animate-grid-scan"
           style={{
             top: '50%',
-            boxShadow: '0 0 20px rgba(32, 211, 238, 0.8), 0 0 40px rgba(32, 211, 238, 0.4)',
+            boxShadow: '0 0 20px rgba(168, 85, 247, 0.8), 0 0 40px rgba(168, 85, 247, 0.4)',
           }}
         />
 
@@ -117,7 +117,7 @@ export default function HeroSection() {
           className="absolute top-0 w-[2px] h-full bg-gradient-to-b from-transparent via-primary to-transparent opacity-30 animate-grid-scan-vertical"
           style={{
             left: '30%',
-            boxShadow: '0 0 15px rgba(32, 211, 238, 0.6)',
+            boxShadow: '0 0 15px rgba(168, 85, 247, 0.6)',
           }}
         />
       </div>

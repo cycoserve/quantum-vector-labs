@@ -97,7 +97,7 @@ export default function AuthForm() {
           </svg>
         </div>
         <h1 className="text-xl font-bold tracking-tighter text-slate-900 dark:text-white uppercase mb-0.5">
-          {view === 'login' ? 'QVL Portal' : 'Create Account'}
+          {view === 'login' ? 'Cy Portal' : 'Create Account'}
         </h1>
         <p className="text-[11px] text-slate-500 dark:text-slate-400">
           {view === 'login' ? 'Sign in to your account' : 'Join the quantum revolution'}
@@ -266,7 +266,7 @@ export default function AuthForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-primary hover:bg-white text-[#010918] font-black py-2.5 rounded-lg shadow-[0_0_16px_rgba(34,211,238,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-primary hover:bg-white text-[#010918] font-black py-2.5 rounded-lg shadow-[0_0_16px_rgba(168,85,247,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 text-xs disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? (
               <>
@@ -319,7 +319,7 @@ export default function AuthForm() {
         <div className="flex items-center gap-3">
           <div className="h-px w-8 bg-primary/20" />
           <p className="text-[9px] font-mono text-slate-400 dark:text-primary/30 uppercase tracking-[0.3em]">
-            Quantum Vector Labs
+            CycoServe Labs
           </p>
         </div>
       </div>

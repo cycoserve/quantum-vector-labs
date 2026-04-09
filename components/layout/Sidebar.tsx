@@ -47,7 +47,7 @@ function LoadingSphere() {
     <div className="flex items-center gap-1.5 px-2 py-1">
       <div className="relative size-3">
         <div className="absolute inset-0 bg-primary rounded-full animate-ping opacity-20"></div>
-        <div className="absolute inset-0 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(32,211,238,0.8)]"></div>
+        <div className="absolute inset-0 bg-primary rounded-full animate-pulse shadow-[0_0_8px_rgba(168,85,247,0.8)]"></div>
       </div>
       <div className="flex gap-0.5">
         <div className="w-1 h-1 bg-primary/40 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
@@ -71,7 +71,7 @@ export default function Sidebar() {
   useEffect(() => {
     setMounted(true);
     // Load messages from localStorage
-    const savedMessages = localStorage.getItem("qvl_chat_history");
+    const savedMessages = localStorage.getItem("cy_chat_history");
     if (savedMessages) {
       try {
         setMessages(JSON.parse(savedMessages));
@@ -84,7 +84,7 @@ export default function Sidebar() {
   // Save messages to localStorage whenever they change
   useEffect(() => {
     if (mounted) {
-      localStorage.setItem("qvl_chat_history", JSON.stringify(messages));
+      localStorage.setItem("cy_chat_history", JSON.stringify(messages));
     }
   }, [messages, mounted]);
 
@@ -109,7 +109,7 @@ export default function Sidebar() {
 
   const handleClearChat = () => {
     setMessages([]);
-    localStorage.removeItem("qvl_chat_history");
+    localStorage.removeItem("cy_chat_history");
   };
 
   const handleToggleFullscreen = () => {
@@ -187,7 +187,7 @@ export default function Sidebar() {
     <div className="fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-50 flex flex-col items-end gap-3">
       {/* Chat Panel */}
       {isOpen && (
-        <div className={`flex flex-col border border-primary/30 shadow-[0_0_40px_rgba(32,211,238,0.15)] overflow-hidden transition-all duration-300 ${
+        <div className={`flex flex-col border border-primary/30 shadow-[0_0_40px_rgba(168,85,247,0.15)] overflow-hidden transition-all duration-300 ${
           isFullscreen 
             ? "fixed inset-0 w-screen h-screen rounded-none z-[100] bg-white dark:bg-[#010918]" 
             : "glass-panel rounded-2xl w-[calc(100vw-2rem)] sm:w-80 h-[500px] sm:h-[480px] fixed bottom-20 right-4 sm:relative sm:bottom-0 sm:right-0"
@@ -199,7 +199,7 @@ export default function Sidebar() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
               </span>
-              <span className="text-sm font-semibold text-slate-900 dark:text-white">QVL Assistant</span>
+              <span className="text-sm font-semibold text-slate-900 dark:text-white">Cy Assistant</span>
             </div>
             <div className="flex items-center gap-1">
               {mounted && (

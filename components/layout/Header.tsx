@@ -2,13 +2,13 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Hexagon } from "lucide-react";
 import MobileMenu from "./MobileMenu";
 import Link from "next/link";
 
 const navLinks = [
   { label: "Solutions", href: "/solutions" },
-  { label: "Learn QVL", href: "/learn" },
+  { label: "Documetation", href: "/learn" },
   { label: "Pricing", href: "/pricing" },
   { label: "Support", href: "/support" }
 ];
@@ -49,16 +49,12 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <div className="size-10 text-primary">
             <Link href="/">
-              <img
-                src="/logo-icon.svg"
-                alt="Quantum Vector Labs Logo"
-                className="w-full h-full"
-              />
+              <Hexagon className="w-full h-full" strokeWidth={1.5} />
             </Link>
           </div>
           <h2 className="text-lg font-bold tracking-wider uppercase">
             <Link href={"/"}>
-              <span className="text-primary font-bold">Quantum VL</span>{" "}
+              <span className="text-primary font-bold">CycoServe</span>{" "}
             </Link>
           
           </h2>
